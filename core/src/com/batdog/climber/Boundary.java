@@ -12,8 +12,4 @@ public class Boundary {
         this.point = point;
         this.normal = normal;
     }
-
-//    Vector2 getParallel() {
-//        return normal.cpy().rotate90(-1);
-//    }
 }

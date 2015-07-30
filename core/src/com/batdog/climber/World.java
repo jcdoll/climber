@@ -9,17 +9,24 @@ class World {
     Player player;
     public final List<Boundary> boundaries;
 
-    float timeScale = 1;
-    float gravity = 9.81f; // m/s^2
+    float epsilon = 0.01f;
+    float gravity = 20f; // m/s^2
+    Vector2 gravityDir = new Vector2();
 
     Climber controller;
 
     public World() {
+        gravityDir.x = 0f;
+        gravityDir.y = -1f;
+
         player = new Player(this);
 
         player.position.x = 10f;
-        player.position.y = 10f;
-        player.velocity.x = player.velocity.y = 0;
+        player.position.y = 5f;
+        player.velocity.x = player.velocity.y = 0f;
+
+        player.jumpDir.x = 0;
+        player.jumpDir.y = 1f;
 
         this.boundaries = new ArrayList<Boundary>();
         generateWorld();
@@ -36,16 +43,15 @@ class World {
 
     void update (float dt) {
         player.calculateForces(dt);
-        checkCollisions();
+        checkPlayerCollisions();
         player.updateState(dt);
-        // TODO: Check game over
     }
 
-    private void checkCollisions () {
+    private void checkPlayerCollisions() {
+        player.surfaceContact = false;
+
         // Check all boundaries in the world (any orientation)
-        int len = boundaries.size();
-        for (int i = 0; i < len; i++) {
-            Boundary boundary = boundaries.get(i);
+        for (Boundary boundary : boundaries) {
             float distanceFromBoundary = new Vector2(player.position).sub(boundary.point).dot(boundary.normal) - player.PLAYER_HEIGHT / 2;
 
             // Check position of a point, u1 = (x1, y1), with respect to a line
@@ -61,11 +67,15 @@ class World {
 
                 // Push the player back to the boundary
                 player.position.sub(new Vector2(boundary.normal).scl(distanceFromBoundary));
-           }
-        }
-    }
+            }
 
-    float getTimeScale() {
-        return timeScale;
+            // Handle close proximity to surfaces nicely
+            if (distanceFromBoundary < epsilon) {
+                player.surfaceContact = true;
+                player.jump = false;
+                player.jumpTime = 0f;
+                player.jumpDir = gravityDir.cpy().scl(-1f).add(boundary.normal).nor();
+            }
+        }
     }
 }

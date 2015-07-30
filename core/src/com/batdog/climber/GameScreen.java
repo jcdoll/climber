@@ -40,8 +40,6 @@ public class GameScreen extends ScreenAdapter {
     }
 
     public void update (float dt) {
-//        float dt = Math.min(Gdx.graphics.getDeltaTime(), MIN_DT) * world.getTimeScale();
-
         // Controls
         if(controller.getButton(XBox360Pad.BUTTON_X) || Gdx.input.isKeyPressed(Input.Keys.CONTROL_LEFT))
             world.player.run();
@@ -65,12 +63,11 @@ public class GameScreen extends ScreenAdapter {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         renderer.render();
 
-        guiCam.update();
-        game.batcher.setProjectionMatrix(guiCam.combined);
-
-        game.batcher.begin();
-        // Overlays
-        game.batcher.end();
+        // TODO: Draw overlays
+//        guiCam.update();
+//        game.batcher.setProjectionMatrix(guiCam.combined);
+//        game.batcher.begin();
+//        game.batcher.end();
     }
 
     @Override

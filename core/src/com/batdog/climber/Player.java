@@ -12,21 +12,24 @@ public class Player {
     Vector2 position = new Vector2();
     Vector2 velocity = new Vector2();
     Vector2 force = new Vector2();
+    Vector2 jumpDir = new Vector2();
 
-    boolean jump = false;
+    boolean jump = true;
     boolean jumpHold = false;
     boolean run = false;
+    boolean surfaceContact = false;
 
-    float jumpForce = 200f; // 1 N
+    float jumpForce = 300f; // 1 N
     float walkForce = 60f;
-    float drag = 7f; // kg/s
+    float surfaceFrictionCoefficient = 7f; // kg/s
+    float dragCoefficient = 7f; // kg/s
     float mass = 1f; // 1 kg
 
     float runMultiplier = 1.5f;
 
     float jumpTime = 0f;
-    float jumpHoldMultiplier = 0.7f;
-    float jumpHoldMaxTime = 1f;
+    float jumpHoldMultiplier = 0.4f;
+    float jumpHoldMaxTime = 0.25f;
 
     Player (World world) {
         this.world = world;
@@ -34,20 +37,28 @@ public class Player {
 
     void jump () {
         if (!jump) {
-            force.y += jumpForce;
+            velocity.y = 0f; // Remove vertical velocity before wall jump
+            force.add(jumpDir.cpy().scl(jumpForce));
             jump = true;
             jumpHold = true;
+        } else if (jumpHold) {
+            float jumpForceScaling = jumpHoldMultiplier * MathUtils.clamp(1 - jumpTime / jumpHoldMaxTime, 0f, 1f);
+            force.add(jumpDir.cpy().scl(jumpForce * jumpForceScaling));
+        } else {
+            jumpHold = false;
         }
     }
 
+    // TODO: Force greater distance from wall during wall jump
+    // TODO: Modify jump direction based upon user input
     void moveLeft () {
         force.x -= walkForce;
-        if(run) force.x *= runMultiplier;
+        if (run) force.x *= runMultiplier;
     }
 
     void moveRight () {
         force.x += walkForce;
-        if(run) force.x *= runMultiplier;
+        if (run) force.x *= runMultiplier;
     }
 
     void run () {
@@ -55,35 +66,20 @@ public class Player {
     }
 
     void calculateForces (float dt) {
-        if (position.y > 0)
-            force.y -= world.gravity;
+        // Apply gravity (collision handling prevents falling through floor)
+        force.add(world.gravityDir.cpy().scl(world.gravity));
 
-        // Apply jump modifiers
-        if (jumpHold)
-            force.y += mass * world.gravity * jumpHoldMultiplier * MathUtils.clamp(1 - jumpTime / jumpHoldMaxTime, 0f, 1f);
-        else
-            force.y -= mass * world.gravity * jumpHoldMultiplier;
-
-        // Apply drag (if in-contact with the ground)
-        force.x -= velocity.x * drag;
+        if (surfaceContact)
+            force.sub(velocity.cpy().scl(surfaceFrictionCoefficient));
+        else // Apply horizontal drag always, vertical drag if in contact with boundary
+            force.x -= velocity.x * dragCoefficient;
 
         // Calculate velocity and position changes
-        velocity.x += dt * (force.x / mass);
-        velocity.y += dt * (force.y / mass);
+        velocity.add(force.scl(dt / mass));
     }
 
     void updateState (float dt) {
-        position.x += dt * velocity.x;
-        position.y += dt * velocity.y;
-
-        // Snap to ground
-        if (position.y - PLAYER_HEIGHT / 2 <= 0) {
-            position.y = PLAYER_HEIGHT / 2;
-            velocity.y = 0f;
-            jump = false;
-            jumpHold = false;
-            jumpTime = 0f;
-        }
+        position.add(velocity.cpy().scl(dt));
 
         // Cleanup for the next frame
         force.x = force.y = 0f;

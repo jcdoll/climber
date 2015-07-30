@@ -16,7 +16,6 @@ class WorldRenderer {
     float viewHeight = 21f;
     float viewWidth = viewHeight * aspectRatio;
 
-//    final float VIRTUAL_HEIGHT = 10f; // Virtual height of the worldRenderer
     String message = "Please install a controller";
 
     World world;
@@ -24,7 +23,6 @@ class WorldRenderer {
     SpriteBatch batch;
 
     Texture texture;
-//    ResolutionFileResolver fileResolver;
     BitmapFont font;
     GlyphLayout glyphLayout;
 
