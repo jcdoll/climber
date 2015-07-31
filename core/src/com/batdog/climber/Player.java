@@ -1,6 +1,5 @@
 package com.batdog.climber;
 
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 
 public class Player {
@@ -18,18 +17,18 @@ public class Player {
     boolean jumpHold = false;
     boolean run = false;
     boolean surfaceContact = false;
+    boolean floorContact = false;
 
-    float jumpForce = 300f; // 1 N
+    float jumpForce = 1200f; // 1 N
     float walkForce = 50f;
-    float surfaceFrictionCoefficient = 7f; // N-s/m
-    float dragCoefficient = 3f; // N-s/m
+    float wallFrictionCoefficient = 5f; // N-s/m
+    float floorFrictionCoefficient = 2f; // N-s/m
+    float movementFrictionCoefficient= 2f; // N-s/m
     float mass = 1f; // 1 kg
 
     float runMultiplier = 1.6f;
 
     float jumpTime = 0f;
-    float jumpHoldMultiplier = 0.4f;
-    float jumpHoldMaxTime = 0.1f;
 
     Player (World world) {
         this.world = world;
@@ -44,9 +43,6 @@ public class Player {
             force.add(jumpDir.cpy().scl(jumpForce));
             jump = true;
             jumpHold = true;
-        } else if (jump && jumpHold) {
-            float jumpForceScaling = jumpHoldMultiplier * MathUtils.clamp(1 - jumpTime / jumpHoldMaxTime, 0f, 1f);
-            force.add(jumpDir.cpy().scl(jumpForce * jumpForceScaling));
         }
     }
 
@@ -70,13 +66,18 @@ public class Player {
         // Apply gravity (collision handling prevents falling through floor)
         force.add(world.gravityDir.cpy().scl(world.gravity));
 
-        // TODO: Apply bonus downwards force depending on jump time / jumpHold for less floaty jumping
+        // Apply horizontal friction only if mid-air
+        // Otherwise apply friction in all directions, with coefficient depending on boundary type
+        if (jump) {
+            force.x -= velocity.x * movementFrictionCoefficient;
+        } else {
+            float frictionCoefficient = (surfaceContact) ? wallFrictionCoefficient : floorFrictionCoefficient;
+            force.sub(velocity.cpy().scl(frictionCoefficient));
+        }
 
-        // Apply friction (all directions if in contact with boundary, otherwise just horizontal
-        if (surfaceContact)
-            force.sub(velocity.cpy().scl(surfaceFrictionCoefficient));
-        else
-            force.x -= velocity.x * dragCoefficient;
+        // Once player releases the jump button while mid-air, set vertical velocity to zero on the next frame
+        if (jump && velocity.y > 0 && !jumpHold)
+            force.y -= mass * velocity.y / (2 * dt);
 
         // Calculate velocity and position changes
         velocity.add(force.scl(dt / mass));

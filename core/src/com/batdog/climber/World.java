@@ -9,8 +9,8 @@ class World {
     Player player;
     public final List<Boundary> boundaries;
 
-    float epsilon = 0.01f;
-    float gravity = 20f; // m/s^2
+    float epsilon = 0.1f;
+    float gravity = 30f; // m/s^2
     Vector2 gravityDir = new Vector2();
 
     Climber controller;
@@ -77,10 +77,12 @@ class World {
             // Handle close proximity to surfaces nicely (e.g. rapid wall jumping)
             // Update jump direction to have a component normal to boundary
             if (distanceFromBoundary < epsilon) {
-                player.surfaceContact = true;
+                player.floorContact = Math.abs(boundary.normal.dot(gravityDir)) > 0.5;
+                player.surfaceContact = !player.floorContact;
+
                 player.jump = false;
                 player.jumpTime = 0f;
-                player.jumpDir = gravityDir.cpy().scl(-1.5f).add(boundary.normal).nor();
+                player.jumpDir = gravityDir.cpy().scl(-1f).add(boundary.normal).nor();
             }
         }
     }
