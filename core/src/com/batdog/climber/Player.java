@@ -20,32 +20,33 @@ public class Player {
     boolean surfaceContact = false;
 
     float jumpForce = 300f; // 1 N
-    float walkForce = 60f;
-    float surfaceFrictionCoefficient = 7f; // kg/s
-    float dragCoefficient = 7f; // kg/s
+    float walkForce = 50f;
+    float surfaceFrictionCoefficient = 7f; // N-s/m
+    float dragCoefficient = 3f; // N-s/m
     float mass = 1f; // 1 kg
 
-    float runMultiplier = 1.5f;
+    float runMultiplier = 1.6f;
 
     float jumpTime = 0f;
     float jumpHoldMultiplier = 0.4f;
-    float jumpHoldMaxTime = 0.25f;
+    float jumpHoldMaxTime = 0.1f;
 
     Player (World world) {
         this.world = world;
     }
 
     void jump () {
-        if (!jump) {
+        // First press of button while not in mid-air: jump
+        // Continuing to hold button while in mid-air: jump boost
+        // Continuing to hold button after hitting ground: nothing
+        if (!jump && !jumpHold) {
             velocity.y = 0f; // Remove vertical velocity before wall jump
             force.add(jumpDir.cpy().scl(jumpForce));
             jump = true;
             jumpHold = true;
-        } else if (jumpHold) {
+        } else if (jump && jumpHold) {
             float jumpForceScaling = jumpHoldMultiplier * MathUtils.clamp(1 - jumpTime / jumpHoldMaxTime, 0f, 1f);
             force.add(jumpDir.cpy().scl(jumpForce * jumpForceScaling));
-        } else {
-            jumpHold = false;
         }
     }
 
@@ -69,9 +70,12 @@ public class Player {
         // Apply gravity (collision handling prevents falling through floor)
         force.add(world.gravityDir.cpy().scl(world.gravity));
 
+        // TODO: Apply bonus downwards force depending on jump time / jumpHold for less floaty jumping
+
+        // Apply friction (all directions if in contact with boundary, otherwise just horizontal
         if (surfaceContact)
             force.sub(velocity.cpy().scl(surfaceFrictionCoefficient));
-        else // Apply horizontal drag always, vertical drag if in contact with boundary
+        else
             force.x -= velocity.x * dragCoefficient;
 
         // Calculate velocity and position changes

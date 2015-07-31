@@ -50,10 +50,14 @@ public class GameScreen extends ScreenAdapter {
         if(pov == XBox360Pad.BUTTON_DPAD_RIGHT || Gdx.input.isKeyPressed(Input.Keys.D))
             world.player.moveRight();
 
-        if(controller.getButton(XBox360Pad.BUTTON_A) || Gdx.input.isKeyPressed(Input.Keys.SPACE))
+        // Apply jump and update player jumpHold state
+        if(controller.getButton(XBox360Pad.BUTTON_A) || Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
             world.player.jump();
-        else
-            world.player.jumpHold = false; // Set to false after button release or upon hitting ground
+            if (!world.player.jump)
+                world.player.jumpHold = true;
+        } else {
+            world.player.jumpHold = false;
+        }
 
         world.update(dt);
     }
