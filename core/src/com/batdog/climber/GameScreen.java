@@ -41,13 +41,13 @@ public class GameScreen extends ScreenAdapter {
 
     public void update (float dt) {
         // Controls
-        if(controller.getButton(XBox360Pad.BUTTON_X) || Gdx.input.isKeyPressed(Input.Keys.CONTROL_LEFT))
+        if(controller.getButton(XBox360Pad.BUTTON_X) || Gdx.input.isKeyPressed(Input.Keys.CONTROL_LEFT) || controller.getButton(XBox360Pad.BUTTON_RB))
             world.player.run();
 
         PovDirection pov = controller.getPov(XBox360Pad.POV);
-        if(pov == XBox360Pad.BUTTON_DPAD_LEFT || Gdx.input.isKeyPressed(Input.Keys.A))
+        if(pov == XBox360Pad.BUTTON_DPAD_LEFT || pov == XBox360Pad.BUTTON_DPAD_UP_LEFT || pov == XBox360Pad.BUTTON_DPAD_DOWN_LEFT || Gdx.input.isKeyPressed(Input.Keys.A))
             world.player.moveLeft();
-        if(pov == XBox360Pad.BUTTON_DPAD_RIGHT || Gdx.input.isKeyPressed(Input.Keys.D))
+        if(pov == XBox360Pad.BUTTON_DPAD_RIGHT || pov == XBox360Pad.BUTTON_DPAD_UP_RIGHT || pov == XBox360Pad.BUTTON_DPAD_DOWN_RIGHT || Gdx.input.isKeyPressed(Input.Keys.D))
             world.player.moveRight();
 
         // Apply jump and update player jumpHold state

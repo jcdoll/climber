@@ -15,6 +15,12 @@ public class XBox360Pad
     public static final PovDirection BUTTON_DPAD_DOWN = PovDirection.south;
     public static final PovDirection BUTTON_DPAD_RIGHT = PovDirection.east;
     public static final PovDirection BUTTON_DPAD_LEFT = PovDirection.west;
+
+    public static final PovDirection BUTTON_DPAD_UP_LEFT = PovDirection.northWest;
+    public static final PovDirection BUTTON_DPAD_UP_RIGHT = PovDirection.northEast;
+    public static final PovDirection BUTTON_DPAD_DOWN_LEFT = PovDirection.southWest;
+    public static final PovDirection BUTTON_DPAD_DOWN_RIGHT = PovDirection.southEast;
+
     public static final int BUTTON_LB = 4;
     public static final int BUTTON_L3 = 8;
     public static final int BUTTON_RB = 5;
