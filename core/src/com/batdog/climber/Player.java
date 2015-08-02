@@ -21,7 +21,7 @@ public class Player {
 
     float jumpForce = 1200f; // 1 N
     float walkForce = 50f;
-    float wallFrictionCoefficient = 5f; // N-s/m
+    float wallFrictionCoefficient = 6f; // N-s/m
     float floorFrictionCoefficient = 2f; // N-s/m
     float movementFrictionCoefficient= 2f; // N-s/m
     float mass = 1f; // 1 kg
@@ -71,7 +71,10 @@ public class Player {
         if (jump) {
             force.x -= velocity.x * movementFrictionCoefficient;
         } else {
-            float frictionCoefficient = (surfaceContact) ? wallFrictionCoefficient : floorFrictionCoefficient;
+            float frictionCoefficient = floorFrictionCoefficient;
+            if (surfaceContact)
+                frictionCoefficient = (velocity.y > 0) ? 0 : wallFrictionCoefficient;
+
             force.sub(velocity.cpy().scl(frictionCoefficient));
         }
 
