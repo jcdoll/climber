@@ -9,6 +9,7 @@ class World {
     Player player;
     public final List<Boundary> boundaries;
 
+    float dt_physics = 1/30f; // separate physics from rendering frame rate
     float epsilon = 0.1f;
     float gravity = 30f; // m/s^2
     Vector2 gravityDir = new Vector2();
@@ -42,9 +43,9 @@ class World {
     }
 
     void update (float dt) {
-        player.calculateForces(dt);
+        player.calculateVelocity();
         checkPlayerCollisions();
-        player.updateState(dt);
+        player.calculatePosition(dt);
     }
 
     private void checkPlayerCollisions() {
@@ -81,7 +82,6 @@ class World {
                 player.surfaceContact = !player.floorContact;
 
                 player.jump = false;
-                player.jumpTime = 0f;
                 player.jumpDir = gravityDir.cpy().scl(-1f).add(boundary.normal).nor();
             }
         }

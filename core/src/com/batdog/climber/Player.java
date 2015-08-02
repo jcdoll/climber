@@ -19,16 +19,13 @@ public class Player {
     boolean surfaceContact = false;
     boolean floorContact = false;
 
-    float jumpForce = 1200f; // 1 N
-    float walkForce = 50f;
+    float jumpForce = 800f; // 1 N
+    float walkForce = 40f;
     float wallFrictionCoefficient = 6f; // N-s/m
-    float floorFrictionCoefficient = 2f; // N-s/m
     float movementFrictionCoefficient= 2f; // N-s/m
     float mass = 1f; // 1 kg
 
     float runMultiplier = 1.6f;
-
-    float jumpTime = 0f;
 
     Player (World world) {
         this.world = world;
@@ -40,7 +37,8 @@ public class Player {
         // Continuing to hold button after hitting ground: nothing
         if (!jump && !jumpHold) {
             velocity.y = 0f; // Remove vertical velocity before wall jump
-            force.add(jumpDir.cpy().scl(jumpForce));
+            float forceScaling = (surfaceContact) ? 1.414f : 1f;
+            force.add(jumpDir.cpy().scl(forceScaling * jumpForce));
             jump = true;
             jumpHold = true;
         }
@@ -62,36 +60,29 @@ public class Player {
         run = true;
     }
 
-    void calculateForces (float dt) {
+    void calculateVelocity () {
         // Apply gravity (collision handling prevents falling through floor)
         force.add(world.gravityDir.cpy().scl(world.gravity));
 
-        // Apply horizontal friction only if mid-air
-        // Otherwise apply friction in all directions, with coefficient depending on boundary type
-        if (jump) {
-            force.x -= velocity.x * movementFrictionCoefficient;
-        } else {
-            float frictionCoefficient = floorFrictionCoefficient;
-            if (surfaceContact)
-                frictionCoefficient = (velocity.y > 0) ? 0 : wallFrictionCoefficient;
-
-            force.sub(velocity.cpy().scl(frictionCoefficient));
-        }
+        // Apply horizontal friction regardless of player state
+        // Apply vertical friction if player is sliding down along a wall
+        force.x -= velocity.x * movementFrictionCoefficient;
+        if (surfaceContact && velocity.y < 0)
+            force.y -= velocity.y * wallFrictionCoefficient;
 
         // Once player releases the jump button while mid-air, set vertical velocity to zero on the next frame
         if (jump && velocity.y > 0 && !jumpHold)
-            force.y -= mass * velocity.y / (2 * dt);
+            force.y -= mass * velocity.y / (2 * world.dt_physics);
 
         // Calculate velocity and position changes
-        velocity.add(force.scl(dt / mass));
+        velocity.add(force.scl(world.dt_physics / mass));
     }
 
-    void updateState (float dt) {
+    void calculatePosition (float dt) {
         position.add(velocity.cpy().scl(dt));
 
         // Cleanup for the next frame
         force.x = force.y = 0f;
-        jumpTime += dt;
         run = false;
     }
 }
