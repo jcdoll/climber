@@ -60,7 +60,7 @@ public class Player {
         run = true;
     }
 
-    void calculateVelocity () {
+    void updateState (float dt) {
         // Apply gravity (collision handling prevents falling through floor)
         force.add(world.gravityDir.cpy().scl(world.gravity));
 
@@ -74,12 +74,10 @@ public class Player {
         if (jump && velocity.y > 0 && !jumpHold)
             force.y -= mass * velocity.y / (2 * world.dt_physics);
 
-        // Calculate velocity and position changes
+        // Verlet (trapezoidal) integration
+        position.add(velocity.cpy().scl(0.5f * dt));
         velocity.add(force.scl(world.dt_physics / mass));
-    }
-
-    void calculatePosition (float dt) {
-        position.add(velocity.cpy().scl(dt));
+        position.add(velocity.cpy().scl(0.5f * dt));
 
         // Cleanup for the next frame
         force.x = force.y = 0f;

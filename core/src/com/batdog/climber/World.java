@@ -43,9 +43,8 @@ class World {
     }
 
     void update (float dt) {
-        player.calculateVelocity();
+        player.updateState(dt);
         checkPlayerCollisions();
-        player.calculatePosition(dt);
     }
 
     private void checkPlayerCollisions() {
