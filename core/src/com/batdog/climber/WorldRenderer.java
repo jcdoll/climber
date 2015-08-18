@@ -48,12 +48,24 @@ class WorldRenderer {
     }
 
     void render () {
+        // TODO: Filtered updating of camera position to track player
+//        cam.position.set(world.player.position.x, world.player.position.y, 0);
         cam.update();
         batch.setProjectionMatrix(cam.combined);
 
         batch.begin();
+        // TODO: Add HUD / text
         renderPlayer();
         renderBoundaries();
+
+        for (Box block : world.blocks) {
+            block.render(batch);
+        }
+
+        for (Platform platform : world.platforms) {
+            platform.render(batch);
+        }
+
         batch.end();
     }
 
@@ -63,18 +75,13 @@ class WorldRenderer {
     }
 
     private void renderPlayer() {
-        float width = world.player.PLAYER_WIDTH;
-        float height = world.player.PLAYER_HEIGHT;
-        float x = world.player.position.x - width / 2;
-        float y = world.player.position.y - height / 2;
-        batch.draw(Assets.player, x, y, width, height);
+        world.player.render(batch);
     }
 
     private void renderBoundaries() {
-        int len = world.boundaries.size();
-        for (int i = 0; i < len; i++) {
-            Boundary boundary = world.boundaries.get(i);
+        // TODO: Render boundaries using a tileset / not perfectly uniform color
 
+        for (Boundary boundary : world.boundaries) {
             float boundaryLength = 100f;
             float boundaryDepth = 100f;
             float x_dot = new Vector2(0f, 1f).dot(boundary.normal);
@@ -89,5 +96,9 @@ class WorldRenderer {
 //            batch.draw(Assets.boundary, x, y, x, y, width, height,
 //                    1f, 1f, boundary.normal.angle() + 90f, 1, 1, 1, 1, false, false);
         }
+    }
+
+    private void renderPlatforms() {
+
     }
 }

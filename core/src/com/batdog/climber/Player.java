@@ -2,17 +2,8 @@ package com.batdog.climber;
 
 import com.badlogic.gdx.math.Vector2;
 
-public class Player {
-    final float PLAYER_HEIGHT = 1f;
-    final float PLAYER_WIDTH = 1f;
-
-    World world;
-
-    Vector2 position = new Vector2();
-    Vector2 velocity = new Vector2();
-    Vector2 force = new Vector2();
+public class Player extends Box {
     Vector2 jumpDir = new Vector2();
-
     boolean jump = true;
     boolean jumpHold = false;
     boolean run = false;
@@ -23,12 +14,11 @@ public class Player {
     float walkForce = 40f;
     float wallFrictionCoefficient = 6f; // N-s/m
     float movementFrictionCoefficient= 2f; // N-s/m
-    float mass = 1f; // 1 kg
 
     float runMultiplier = 1.6f;
 
     Player (World world) {
-        this.world = world;
+        super(world);
     }
 
     void jump () {
