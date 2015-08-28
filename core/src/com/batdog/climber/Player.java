@@ -8,7 +8,6 @@ public class Player extends Box {
     boolean jumpHold = false;
     boolean run = false;
     boolean surfaceContact = false;
-    boolean floorContact = false;
 
     float jumpForce = 800f; // 1 N
     float walkForce = 40f;
@@ -23,6 +22,7 @@ public class Player extends Box {
 
     void jump () {
         // First press of button while not in mid-air: jump
+
         // Continuing to hold button while in mid-air: jump boost
         // Continuing to hold button after hitting ground: nothing
         if (!jump && !jumpHold) {
@@ -60,8 +60,8 @@ public class Player extends Box {
         if (surfaceContact && velocity.y < 0)
             force.y -= velocity.y * wallFrictionCoefficient;
 
-        // Once player releases the jump button while mid-air, set vertical velocity to zero on the next frame
-        if (jump && velocity.y > 0 && !jumpHold)
+        // Once player releases the jump button, set vertical velocity to zero on the next frame
+        if (velocity.y > 0 && !jumpHold)
             force.y -= mass * velocity.y / (2 * world.dt_physics);
 
         // Verlet (trapezoidal) integration

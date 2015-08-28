@@ -87,41 +87,4 @@ public class Box {
     float getHeight() {
         return extents.y;
     }
-
-    Box minkowskiDifference(Box otherBox) {
-        float x = getLeft() - otherBox.getLeft() - otherBox.getWidth();
-        float y = otherBox.getBottom() - getBottom() - getHeight();
-        float w = getWidth() + otherBox.getWidth();
-        float h = getHeight() + otherBox.getHeight();
-        return new Box(x, y, w, h);
-    }
-
-    // If MD includes origin, then boxes are intersecting
-    boolean intersecting(Box otherBox) {
-        Box md = minkowskiDifference(otherBox);
-        return ((md.getLeft() <= 0) && (md.getRight() >= 0) && (md.getBottom() <= 0) && (md.getTop() >= 0));
-    }
-
-    Vector2 penetrationVector(Box otherBox) {
-        Box md = minkowskiDifference(otherBox);
-        Vector2 penetrationVector = new Vector2(0, 0);
-        if ((md.getLeft() <= world.epsilon) && (md.getRight() >= -world.epsilon) && (md.getBottom() <= world.epsilon) && (md.getTop() >= -world.epsilon)) {
-            // Vectors are outward normals of otherBox
-            List<Vector2> edgeVectors = Arrays.asList(
-                    new Vector2(-md.getLeft(), 0),
-                    new Vector2(-md.getRight(), 0),
-                    new Vector2(0, md.getBottom()),
-                    new Vector2(0, md.getTop())
-            );
-            float minDist = md.getWidth() + md.getHeight();
-            for (Vector2 edgeVector : edgeVectors) {
-                float currDist = edgeVector.len();
-                if (currDist < minDist) {
-                    minDist = currDist;
-                    penetrationVector = edgeVector;
-                }
-            }
-        }
-        return penetrationVector;
-    }
 }
