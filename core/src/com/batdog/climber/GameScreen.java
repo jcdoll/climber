@@ -19,7 +19,7 @@ public class GameScreen extends ScreenAdapter {
     WorldRenderer renderer;
     Controller controller;
     OrthographicCamera guiCam;
-    boolean hasControllers = true;
+    boolean hasControllers = false;
 
     final float MIN_DT = 1/30f;
     GlyphLayout glyphLayout = new GlyphLayout();
@@ -33,31 +33,46 @@ public class GameScreen extends ScreenAdapter {
         renderer = new WorldRenderer(game.batcher, world);
 
         // Setup controllers
-        if (Controllers.getControllers().size == 0)
-            hasControllers = false;
-        else
+        if (Controllers.getControllers().size > 0) {
+            hasControllers = true;
             controller = Controllers.getControllers().first();
+        }
     }
 
     public void update (float dt) {
-        // Controls
-        if(controller.getButton(XBox360Pad.BUTTON_X) || Gdx.input.isKeyPressed(Input.Keys.CONTROL_LEFT) || controller.getButton(XBox360Pad.BUTTON_RB))
-            world.player.run();
+        // Handle user input
+        // TODO: Refactor to cleanup and eliminate potential double updates per frame
+        if (hasControllers) {
+            PovDirection pov = controller.getPov(XBox360Pad.POV);
+            if (controller.getButton(XBox360Pad.BUTTON_X) || controller.getButton(XBox360Pad.BUTTON_RB))
+                world.player.run();
+            if (pov == XBox360Pad.BUTTON_DPAD_LEFT || pov == XBox360Pad.BUTTON_DPAD_UP_LEFT || pov == XBox360Pad.BUTTON_DPAD_DOWN_LEFT)
+                world.player.moveLeft();
+            if (pov == XBox360Pad.BUTTON_DPAD_RIGHT || pov == XBox360Pad.BUTTON_DPAD_UP_RIGHT || pov == XBox360Pad.BUTTON_DPAD_DOWN_RIGHT)
+                world.player.moveRight();
 
-        PovDirection pov = controller.getPov(XBox360Pad.POV);
-        if(pov == XBox360Pad.BUTTON_DPAD_LEFT || pov == XBox360Pad.BUTTON_DPAD_UP_LEFT || pov == XBox360Pad.BUTTON_DPAD_DOWN_LEFT || Gdx.input.isKeyPressed(Input.Keys.A))
-            world.player.moveLeft();
-        if(pov == XBox360Pad.BUTTON_DPAD_RIGHT || pov == XBox360Pad.BUTTON_DPAD_UP_RIGHT || pov == XBox360Pad.BUTTON_DPAD_DOWN_RIGHT || Gdx.input.isKeyPressed(Input.Keys.D))
-            world.player.moveRight();
-
-        // Apply jump and update player jumpHold state
-        if(controller.getButton(XBox360Pad.BUTTON_A) || Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
-            world.player.jump();
-            world.player.jumpHold = true;
+            // Apply jump and update player jumpHold state
+            // TODO: Eliminate jumpHold
+            if (controller.getButton(XBox360Pad.BUTTON_A)) {
+                world.player.jump();
+                world.player.jumpHold = true;
+            } else {
+                world.player.jumpHold = false;
+            }
         } else {
-            world.player.jumpHold = false;
+            if (Gdx.input.isKeyPressed(Input.Keys.CONTROL_LEFT))
+                world.player.run();
+            if (Gdx.input.isKeyPressed(Input.Keys.A))
+                world.player.moveLeft();
+            if (Gdx.input.isKeyPressed(Input.Keys.D))
+                world.player.moveRight();
+            if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
+                world.player.jump();
+                world.player.jumpHold = true;
+            } else {
+                world.player.jumpHold = false;
+            }
         }
-
         world.update(dt);
     }
 
