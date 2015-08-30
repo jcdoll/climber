@@ -8,8 +8,6 @@ import java.util.List;
 
 class World {
     Player player;
-    public final List<Boundary> boundaries = new ArrayList<Boundary>();;
-    public final List<Platform> platforms = new ArrayList<Platform>();;
     public final List<Box> blocks = new ArrayList<Box>();
 
     final float PLAYER_HEIGHT = 1f;

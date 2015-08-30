@@ -7,12 +7,6 @@ import com.badlogic.gdx.math.Vector2;
 import java.util.Arrays;
 import java.util.List;
 
-// Encapsulates box locations and swept collision detection
-// Calculations assume that extents.x and extents.y are both positive
-//
-// References
-// http://hamaluik.com/posts/simple-aabb-collision-using-the-minkowski-difference/
-// http://hamaluik.com/posts/swept-aabb-collision-detection-using-the-minkowski-difference/
 public class Box {
     World world;
     Vector2 position = new Vector2(); // from origin to lower left corner
@@ -24,7 +18,7 @@ public class Box {
     Texture texture;
 
     // x and y are distances to the lower left corner of the box
-    // w and h are the total extents of the box
+    // w and h are the total extents of the box (assumed to be positive)
     Box(World world) {
         this.world = world;
     }

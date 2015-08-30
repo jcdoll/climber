@@ -6,15 +6,24 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 
 class WorldRenderer {
-    // TODO: Texture vs. sprite (see http://www.gamefromscratch.com/post/2014/09/22/LibGDX-Tutorial-Part-14-Gamepad-support.aspx)
+    float cameraViewHeightMin = 20f;
+    float cameraViewHeightMax = 100f;
+    float cameraViewGain = 1f;
+    float cameraViewHeight = cameraViewHeightMin;
+    float cameraViewAspectRatio = 16/9f;
+    float cameraViewHeightGainP = 1e-2f;
+    float cameraViewHeightGainI = 5e-5f;
+    float cameraViewHeightErrorIntegral = 0f;
 
-    // Matches aspect ratio of window
-    float aspectRatio = 16/9f;
-    float viewHeight = 21f;
-    float viewWidth = viewHeight * aspectRatio;
+    float cameraPositionGainP = 5e-2f;
+    float cameraPositionGainI = 1e-4f;
+    Vector3 cameraPositionError = new Vector3();
+    Vector3 cameraPositionErrorIntegral = new Vector3();
 
     String message = "Please install a controller";
 
@@ -28,7 +37,7 @@ class WorldRenderer {
 
     public WorldRenderer(SpriteBatch batch, World world) {
         this.world = world;
-        this.cam = new OrthographicCamera(viewWidth, viewHeight);
+        this.cam = new OrthographicCamera(cameraViewHeight * cameraViewAspectRatio, cameraViewHeight);
         this.cam.position.set(world.player.position.x, world.player.position.y, 0);
         this.batch = batch;
 
@@ -37,68 +46,42 @@ class WorldRenderer {
 //        glyphLayout = new GlyphLayout();
     }
 
-//    public void resize (int width, int height) {
-//        cam.setToOrtho(false, VIRTUAL_HEIGHT * width / (float) height, VIRTUAL_HEIGHT);
-//        batch.setProjectionMatrix(cam.combined);
-//    }
-
     void dispose() {
         texture.dispose();
         batch.dispose();
     }
 
     void render () {
-        // TODO: Filtered updating of camera position to track player
-//        cam.position.set(world.player.position.x, world.player.position.y, 0);
+        // PI control loops for camera view height and position based upon user movement
+        float newViewHeight = MathUtils.clamp(world.player.velocity.len()*cameraViewGain,
+                                              cameraViewHeightMin, cameraViewHeightMax);
+        float cameraViewHeightError = (newViewHeight - cam.viewportHeight);
+        cameraViewHeightErrorIntegral += cameraViewHeightError;
+        cam.viewportHeight += cameraViewHeightError * cameraViewHeightGainP
+                            + cameraViewHeightErrorIntegral * cameraViewHeightGainI;
+        cam.viewportWidth = cam.viewportHeight * cameraViewAspectRatio;
+
+        Vector2 targetPosition = world.player.position.cpy(); // TODO: Include player orientation and velocity
+        cameraPositionError = new Vector3(targetPosition, 0).sub(cam.position);
+        cameraPositionErrorIntegral.add(cameraPositionError);
+        Vector3 positionFeedback = cameraPositionError.cpy().scl(cameraPositionGainP)
+                                        .add(cameraPositionErrorIntegral.cpy().scl(cameraPositionGainI));
+        cam.position.add(positionFeedback);
+
         cam.update();
         batch.setProjectionMatrix(cam.combined);
 
+        // Draw world components
         batch.begin();
-        // TODO: Add HUD / text
-        renderPlayer();
-        renderBoundaries();
-
+        world.player.render(batch);
         for (Box block : world.blocks) {
             block.render(batch);
         }
-
-        for (Platform platform : world.platforms) {
-            platform.render(batch);
-        }
-
         batch.end();
     }
 
     private void renderText() {
         glyphLayout.setText(font, message);
         font.draw(batch, glyphLayout, Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
-    }
-
-    private void renderPlayer() {
-        world.player.render(batch);
-    }
-
-    private void renderBoundaries() {
-        // TODO: Render boundaries using a tileset / not perfectly uniform color
-
-        for (Boundary boundary : world.boundaries) {
-            float boundaryLength = 100f;
-            float boundaryDepth = 100f;
-            float x_dot = new Vector2(0f, 1f).dot(boundary.normal);
-            float y_dot = new Vector2(1f, 0f).dot(boundary.normal);
-
-            float width = Math.abs(x_dot) * boundaryLength + boundaryDepth;
-            float height = Math.abs(y_dot) * boundaryLength + boundaryDepth;
-            float x = boundary.point.x - width / 2 - y_dot * boundaryDepth / 2;
-            float y = boundary.point.y - height / 2 - x_dot * boundaryDepth / 2;
-
-            batch.draw(Assets.boundary, x, y, width, height);
-//            batch.draw(Assets.boundary, x, y, x, y, width, height,
-//                    1f, 1f, boundary.normal.angle() + 90f, 1, 1, 1, 1, false, false);
-        }
-    }
-
-    private void renderPlatforms() {
-
     }
 }

@@ -5,6 +5,12 @@ import com.badlogic.gdx.math.Vector2;
 import java.util.Arrays;
 import java.util.List;
 
+// Handles collision detection between boxes (primitives for player and obstacles)
+// TODO: Implement swept collision detection to avoid popping at high velocity
+//
+// References
+// http://hamaluik.com/posts/simple-aabb-collision-using-the-minkowski-difference/
+// http://hamaluik.com/posts/swept-aabb-collision-detection-using-the-minkowski-difference/
 public class BoxIntersector {
     World world;
     Box md;
@@ -21,7 +27,7 @@ public class BoxIntersector {
     public void setObstacle(Box obstacleBox) {
         this.obstacleBox = obstacleBox;
         updateMinkowskiDifference();
-        updateMinimumDistance();
+        updatePenetrationAndNormalVectors();
     }
 
     private void updateMinkowskiDifference() {
@@ -33,7 +39,7 @@ public class BoxIntersector {
     }
 
     // Vectors are outward normals of otherBox
-    private void updateMinimumDistance() {
+    private void updatePenetrationAndNormalVectors() {
         List<Vector2> edgeVectors = Arrays.asList(
                 new Vector2(-md.getLeft(), 0),
                 new Vector2(-md.getRight(), 0),

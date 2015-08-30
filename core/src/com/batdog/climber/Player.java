@@ -9,12 +9,11 @@ public class Player extends Box {
     boolean run = false;
     boolean surfaceContact = false;
 
-    float jumpForce = 800f; // 1 N
-    float walkForce = 40f;
+    float jumpForce = 800f; // N
+    float walkForce = 40f; // N
     float wallFrictionCoefficient = 6f; // N-s/m
     float movementFrictionCoefficient= 2f; // N-s/m
-
-    float runMultiplier = 1.6f;
+    float runMultiplier = 1.6f; // Force multiplier while run button is held down
 
     Player (World world) {
         super(world);
@@ -22,11 +21,11 @@ public class Player extends Box {
 
     void jump () {
         // First press of button while not in mid-air: jump
-
         // Continuing to hold button while in mid-air: jump boost
         // Continuing to hold button after hitting ground: nothing
+        // Handle wall jumping nicely (vertical gain same for floor jump vs. surface jump)
         if (!jump && !jumpHold) {
-            velocity.y = 0f; // Remove vertical velocity before wall jump
+            velocity.y = 0f;
             float forceScaling = (surfaceContact) ? 1.414f : 1f;
             force.add(jumpDir.cpy().scl(forceScaling * jumpForce));
             jump = true;
@@ -34,8 +33,6 @@ public class Player extends Box {
         }
     }
 
-    // TODO: Force greater distance from wall during wall jump
-    // TODO: Modify jump direction based upon user input
     void moveLeft () {
         force.x -= walkForce;
         if (run) force.x *= runMultiplier;
