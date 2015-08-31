@@ -51,7 +51,7 @@ class World {
 
     void update (float dt) {
         player.updateState(dt);
-        checkPlayerCollisions();
+        checkPlayerCollisions(); // TODO: Do not check all objects every frame
     }
 
     private void checkPlayerCollisions() {
@@ -76,6 +76,8 @@ class World {
                 player.position.add(penetrationVector);
                 player.velocity.add(normalVector.cpy().scl(normalVelocity));
 
+
+                player.floorContact = !gravityDir.isPerpendicular(intersector.normalVector);
                 player.surfaceContact = true;
                 player.jump = false;
 

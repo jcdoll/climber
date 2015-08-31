@@ -7,6 +7,7 @@ public class Player extends Box {
     boolean jump = true;
     boolean jumpHold = false;
     boolean run = false;
+    boolean floorContact = false;
     boolean surfaceContact = false;
 
     float jumpForce = 800f; // N
@@ -26,7 +27,7 @@ public class Player extends Box {
         // Handle wall jumping nicely (vertical gain same for floor jump vs. surface jump)
         if (!jump && !jumpHold) {
             velocity.y = 0f;
-            float forceScaling = (surfaceContact) ? 1.414f : 1f;
+            float forceScaling = (floorContact) ? 1f : 1.414f;
             force.add(jumpDir.cpy().scl(forceScaling * jumpForce));
             jump = true;
             jumpHold = true;
