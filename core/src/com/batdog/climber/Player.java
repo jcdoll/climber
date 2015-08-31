@@ -2,6 +2,8 @@ package com.batdog.climber;
 
 import com.badlogic.gdx.math.Vector2;
 
+// TODO: Rework controls from friction to velocity change input
+// TODO: Add stickiness to walls
 public class Player extends Box {
     Vector2 jumpDir = new Vector2();
     boolean jump = true;
