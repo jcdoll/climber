@@ -15,6 +15,7 @@ public class Player extends Box {
     float jumpForce = 800f; // N
     float walkForce = 40f; // N
     float wallFrictionCoefficient = 6f; // N-s/m
+    float airDragCoefficient = 2e-2f;
     float movementFrictionCoefficient= 2f; // N-s/m
     float runMultiplier = 1.6f; // Force multiplier while run button is held down
 
@@ -53,6 +54,11 @@ public class Player extends Box {
     void updateState (float dt) {
         // Apply gravity (collision handling prevents falling through floor)
         force.add(world.gravityDir.cpy().scl(world.gravity));
+
+        // Apply air drag if falling
+        if (!surfaceContact && velocity.y < 0) {
+            force.y -= Math.signum(velocity.y) * Math.pow(velocity.y, 2) * airDragCoefficient;
+        }
 
         // Apply horizontal friction regardless of player state
         // Apply vertical friction if player is sliding down along a wall
