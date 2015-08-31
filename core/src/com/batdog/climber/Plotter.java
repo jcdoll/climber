@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.FloatArray;
 import java.util.function.IntSupplier;
+import java.util.function.Supplier;
 
 public class Plotter {
     float labelInset; // pixels to inset labels
@@ -22,9 +23,9 @@ public class Plotter {
     BitmapFont font;
     GlyphLayout glyphLayout;
     String title;
-    IntSupplier dataGenerator;
+    Supplier<Float> dataGenerator;
 
-    Plotter(String title, float x, float y, float width, float height, int size, float[] plotLimits, IntSupplier dataGenerator) {
+    Plotter(String title, float x, float y, float width, float height, int size, float[] plotLimits, Supplier<Float> dataGenerator) {
         this.title = title;
         this.x = x;
         this.y = y;
@@ -44,7 +45,7 @@ public class Plotter {
     }
 
     public void render(SpriteBatch batch, ShapeRenderer shapeRenderer) {
-        float newValue = (float) dataGenerator.getAsInt();
+        float newValue = dataGenerator.get();
         data.removeIndex(0);
         data.add(newValue);
 

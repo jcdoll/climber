@@ -50,14 +50,14 @@ class WorldRenderer {
         font.setColor(Color.WHITE);
         glyphLayout = new GlyphLayout();
 
-        plots.add(new Plotter("fps", 50f, 50f,  200f, 100f, 240, new float[]{30, 70}, () -> Gdx.graphics.getFramesPerSecond()));
-        plots.add(new Plotter("v",   50f, 200f, 200f, 100f, 240, new float[]{0, 1000}, () -> (int) world.player.velocity.len2()));
-        plots.add(new Plotter("h",   50f, 350f, 200f, 100f, 240, new float[]{0, 10}, () -> (int) world.player.getTop()));
+        plots.add(new Plotter("fps", 50f, 50f,  200f, 100f, 240, new float[]{30, 70}, () -> (float) Gdx.graphics.getFramesPerSecond()));
+        plots.add(new Plotter("v",   50f, 200f, 200f, 100f, 240, new float[]{0, 1000}, () -> world.player.velocity.len2()));
+        plots.add(new Plotter("h",   50f, 350f, 200f, 100f, 240, new float[]{0, 10}, () -> world.player.getTop()));
     }
 
+    // Sprite batch is disposed of in the main game class
     void dispose() {
         shapeRenderer.dispose();
-        batch.dispose();
     }
 
     void render () {
