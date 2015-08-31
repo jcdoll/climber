@@ -80,12 +80,6 @@ public class GameScreen extends ScreenAdapter {
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         renderer.render();
-
-        // TODO: Draw overlays
-//        guiCam.update();
-//        game.batcher.setProjectionMatrix(guiCam.combined);
-//        game.batcher.begin();
-//        game.batcher.end();
     }
 
     @Override
