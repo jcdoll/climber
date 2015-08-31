@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.FloatArray;
 import java.util.function.IntSupplier;
 
@@ -43,13 +44,18 @@ public class Plotter {
     }
 
     public void render(SpriteBatch batch, ShapeRenderer shapeRenderer) {
+        float newValue = (float) dataGenerator.getAsInt();
+        data.removeIndex(0);
+        data.add(newValue);
+
+        // Update plot limits from default if needed
+        if (newValue < plotLimits[0]) plotLimits[0] = MathUtils.floor(newValue / 10)*10;
+        if (newValue > plotLimits[1]) plotLimits[1] = MathUtils.ceil(newValue / 10)*10;
+
         float x0 = -Gdx.graphics.getWidth() / 2 + x;
         float y0 = Gdx.graphics.getHeight() / 2 - y - height;
         float widthScale = width / data.size;
         float heightScale = height / (plotLimits[1] - plotLimits[0]);
-
-        data.removeIndex(0);
-        data.add((float) dataGenerator.getAsInt());
 
         // Draw label
         batch.begin();
@@ -69,14 +75,11 @@ public class Plotter {
         // Draw data
         shapeRenderer.setColor(plotColor[0], plotColor[1], plotColor[2], 1);
         for (int i = 0; i < data.size - 1; i++) {
-            if (data.get(i) > plotLimits[0] && data.get(i) < plotLimits[1]) {
-                shapeRenderer.line(
-                        x0 + i * widthScale,
-                        y0 + (data.get(i) - plotLimits[0]) * heightScale,
-                        x0 + (i + 1) * widthScale,
-                        y0 + (data.get(i + 1) - plotLimits[0]) * heightScale
-                );
-            }
+            shapeRenderer.line(
+                    x0 + i * widthScale,
+                    y0 + (data.get(i) - plotLimits[0]) * heightScale,
+                    x0 + (i + 1) * widthScale,
+                    y0 + (data.get(i + 1) - plotLimits[0]) * heightScale);
         }
         shapeRenderer.end();
     }
