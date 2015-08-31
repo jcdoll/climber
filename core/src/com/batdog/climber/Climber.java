@@ -1,26 +1,33 @@
 package com.batdog.climber;
 
 import com.badlogic.gdx.Application;
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Climber extends Game {
 
-	public SpriteBatch batcher;
+	public SpriteBatch batch;
+	GameScreen mainScreen;
 
 	@Override
 	public void create () {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 
-		batcher = new SpriteBatch();
+		batch = new SpriteBatch();
 		Assets.load();
-		setScreen(new GameScreen(this));
+		mainScreen = new GameScreen(this);
+		setScreen(mainScreen);
 	}
 
 	@Override
 	public void render () {
 		super.render();
 	};
+
+	@Override
+	public void dispose () {
+		batch.dispose();
+		mainScreen.dispose();
+	}
 }

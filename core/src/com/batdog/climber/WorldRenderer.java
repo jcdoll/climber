@@ -3,12 +3,14 @@ package com.batdog.climber;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
+
+import java.util.ArrayList;
+import java.util.List;
 
 class WorldRenderer {
     float cameraViewHeightMin = 20f;
@@ -25,17 +27,15 @@ class WorldRenderer {
     Vector3 cameraPositionError = new Vector3();
     Vector3 cameraPositionErrorIntegral = new Vector3();
 
-    String message = "Please install a controller";
-
     World world;
     OrthographicCamera cam;
     OrthographicCamera hudCam;
     SpriteBatch batch;
-    Plotter fpsPlot;
+
+    public final List<Plotter> plots = new ArrayList<Plotter>();
 
     ShapeRenderer shapeRenderer = new ShapeRenderer();
 
-    Texture texture;
     BitmapFont font;
     GlyphLayout glyphLayout;
 
@@ -50,11 +50,13 @@ class WorldRenderer {
         font.setColor(Color.WHITE);
         glyphLayout = new GlyphLayout();
 
-        fpsPlot = new Plotter("fps", 50f, 50f, 200f, 100f, 120, new float[]{30, 70}, () -> Gdx.graphics.getFramesPerSecond());
+        plots.add(new Plotter("fps", 50f, 50f,  200f, 100f, 240, new float[]{30, 70}, () -> Gdx.graphics.getFramesPerSecond()));
+        plots.add(new Plotter("v",   50f, 200f, 200f, 100f, 240, new float[]{0, 1000}, () -> (int) world.player.velocity.len2()));
+        plots.add(new Plotter("h",   50f, 350f, 200f, 100f, 240, new float[]{0, 10}, () -> (int) world.player.getTop()));
     }
 
     void dispose() {
-        texture.dispose();
+        shapeRenderer.dispose();
         batch.dispose();
     }
 
@@ -88,11 +90,8 @@ class WorldRenderer {
         // Draw HUD
         batch.setProjectionMatrix(hudCam.combined);
         shapeRenderer.setProjectionMatrix(hudCam.combined);
-        fpsPlot.render(batch, shapeRenderer);
-    }
-
-    private void renderText() {
-        glyphLayout.setText(font, message);
-        font.draw(batch, glyphLayout, Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
+        for (Plotter plot : plots) {
+            plot.render(batch, shapeRenderer);
+        }
     }
 }

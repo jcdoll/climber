@@ -81,4 +81,8 @@ public class Box {
     float getHeight() {
         return extents.y;
     }
+
+    public void dispose() {
+        texture.dispose();
+    }
 }

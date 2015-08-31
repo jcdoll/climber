@@ -30,7 +30,7 @@ public class GameScreen extends ScreenAdapter {
         guiCam = new OrthographicCamera(VIEW_WIDTH, VIEW_HEIGHT);
         guiCam.position.set(VIEW_WIDTH / 2, VIEW_HEIGHT / 2, 0);
         world = new World();
-        renderer = new WorldRenderer(game.batcher, world);
+        renderer = new WorldRenderer(game.batch, world);
 
         // Setup controllers
         if (Controllers.getControllers().size > 0) {
@@ -86,5 +86,10 @@ public class GameScreen extends ScreenAdapter {
     public void render (float dt) {
         update(dt);
         draw();
+    }
+
+    public void dispose() {
+        renderer.dispose();
+        world.dispose();
     }
 }

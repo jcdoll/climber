@@ -20,8 +20,6 @@ class World {
     float gravity = 30f; // m/s^2
     Vector2 gravityDir = new Vector2(0f, -1f);
 
-    Climber controller;
-
     public World() {
         // Create player
         player = new Player(this);
@@ -94,5 +92,12 @@ class World {
                 player.jumpDir = gravityDir.cpy().scl(-1f).add(normalVector).nor();
             }
         }
+    }
+
+    public void dispose() {
+        for (Box block : blocks) {
+            block.dispose();
+        }
+        player.dispose();
     }
 }
