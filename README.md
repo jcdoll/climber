@@ -11,10 +11,11 @@ Climber is an experiment in libgdx development. The focus is on a controller-bas
 
 ## Tools used
 
-* [IDE](https://www.jetbrains.com/idea/)
-* [Art](http://pyxeledit.com/)
-* [Music](http://boscaceoil.net/)
-* [Audio](http://sourceforge.net/projects/audacity/)
+* IDE: [IntelliJ](https://www.jetbrains.com/idea/)
+* Graphics: [PyxelEdit](http://pyxeledit.com/)
+* Sound effect generation: [bfxr](http://www.bfxr.net/)
+* Sound effect editing: [Audacity](http://sourceforge.net/projects/audacity/)
+* Music: [Reaper](http://www.reaper.fm/)
 
 ## References
 

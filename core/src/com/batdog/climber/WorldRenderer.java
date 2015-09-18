@@ -14,37 +14,39 @@ import java.util.List;
 
 class WorldRenderer {
     float cameraViewHeightMin = 20f;
-    float cameraViewHeightMax = 100f;
+    float cameraViewHeightMax = 60f;
     float cameraViewGain = 1f;
     float cameraViewHeight = cameraViewHeightMin;
     float cameraViewAspectRatio = 16/9f;
-    float cameraViewHeightGainP = 5e-3f;
-    float cameraViewHeightGainI = 5e-5f;
+    float cameraViewHeightGainP = 2e-3f;
+    float cameraViewHeightGainI = 1e-5f;
     float cameraViewHeightErrorIntegral = 0f;
 
-    float cameraPositionGainP = 5e-2f;
+    float cameraPositionGainP = 8e-2f;
     float cameraPositionGainI = 1e-4f;
     Vector3 cameraPositionError = new Vector3();
     Vector3 cameraPositionErrorIntegral = new Vector3();
 
+    Climber game;
     World world;
     OrthographicCamera cam;
     OrthographicCamera hudCam;
     SpriteBatch batch;
 
-    public final List<Plotter> plots = new ArrayList<Plotter>();
+    public final List<Plotter> plots = new ArrayList<>();
 
     ShapeRenderer shapeRenderer = new ShapeRenderer();
 
     BitmapFont font;
     GlyphLayout glyphLayout;
 
-    public WorldRenderer(SpriteBatch batch, World world) {
+    public WorldRenderer(Climber game, World world) {
+        this.game = game;
         this.world = world;
         this.cam = new OrthographicCamera(cameraViewHeight * cameraViewAspectRatio, cameraViewHeight);
         this.cam.position.set(world.player.position.x, world.player.position.y, 0);
         this.hudCam = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        this.batch = batch;
+        this.batch = game.batch;
 
         font = new BitmapFont();
         font.setColor(Color.WHITE);
@@ -88,10 +90,12 @@ class WorldRenderer {
         batch.end();
 
         // Draw HUD
-        batch.setProjectionMatrix(hudCam.combined);
-        shapeRenderer.setProjectionMatrix(hudCam.combined);
-        for (Plotter plot : plots) {
-            plot.render(batch, shapeRenderer);
+        if (game.debugMode) {
+            batch.setProjectionMatrix(hudCam.combined);
+            shapeRenderer.setProjectionMatrix(hudCam.combined);
+            for (Plotter plot : plots) {
+                plot.render(batch, shapeRenderer);
+            }
         }
     }
 }

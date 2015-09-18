@@ -9,7 +9,7 @@ import java.util.List;
 
 class World {
     Player player;
-    public final List<Box> blocks = new ArrayList<Box>();
+    public final List<Box> blocks = new ArrayList<>();
 
     final float PLAYER_HEIGHT = 1f;
     final float PLAYER_WIDTH = 1f;

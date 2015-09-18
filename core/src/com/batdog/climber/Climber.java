@@ -7,8 +7,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Climber extends Game {
 
-	public SpriteBatch batch;
+	SpriteBatch batch;
 	GameScreen mainScreen;
+    boolean debugMode = false;
 
 	@Override
 	public void create () {
@@ -27,6 +28,7 @@ public class Climber extends Game {
 
 	@Override
 	public void dispose () {
+		Assets.dispose();
 		batch.dispose();
 		mainScreen.dispose();
 	}

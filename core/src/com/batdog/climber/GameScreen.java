@@ -30,13 +30,16 @@ public class GameScreen extends ScreenAdapter {
         guiCam = new OrthographicCamera(VIEW_WIDTH, VIEW_HEIGHT);
         guiCam.position.set(VIEW_WIDTH / 2, VIEW_HEIGHT / 2, 0);
         world = new World();
-        renderer = new WorldRenderer(game.batch, world);
+        renderer = new WorldRenderer(game, world);
 
         // Setup controllers
         if (Controllers.getControllers().size > 0) {
             hasControllers = true;
             controller = Controllers.getControllers().first();
         }
+
+        // Start playing music
+        Assets.startMusic(Assets.backgroundMusic);
     }
 
     public void update (float dt) {
@@ -51,7 +54,7 @@ public class GameScreen extends ScreenAdapter {
             if (pov == XBox360Pad.BUTTON_DPAD_RIGHT || pov == XBox360Pad.BUTTON_DPAD_UP_RIGHT || pov == XBox360Pad.BUTTON_DPAD_DOWN_RIGHT)
                 world.player.moveRight();
 
-            // Apply jump and update player jumpHold state
+            // Apply jumpSound and update player jumpHold state
             // TODO: Eliminate jumpHold
             if (controller.getButton(XBox360Pad.BUTTON_A)) {
                 world.player.jump();

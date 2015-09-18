@@ -24,17 +24,22 @@ public class Player extends Box {
     }
 
     void jump () {
-        // First press of button while not in mid-air: jump
-        // Continuing to hold button while in mid-air: jump boost
+        // First press of button while not in mid-air: jumpSound
+        // Continuing to hold button while in mid-air: jumpSound boost
         // Continuing to hold button after hitting ground: nothing
-        // Handle wall jumping nicely (vertical gain same for floor jump vs. surface jump)
+        // Handle wall jumping nicely (vertical gain same for floor jumpSound vs. surface jumpSound)
         if (!jump && !jumpHold) {
             velocity.y = 0f;
             float forceScaling = (floorContact) ? 1f : 1.414f;
             force.add(jumpDir.cpy().scl(forceScaling * jumpForce));
             jump = true;
             jumpHold = true;
+            Assets.playSound(Assets.jumpSound, 0.5f);
         }
+    }
+
+    boolean wallSliding () {
+        return (surfaceContact && velocity.y < 0);
     }
 
     void moveLeft () {
@@ -63,10 +68,14 @@ public class Player extends Box {
         // Apply horizontal friction regardless of player state
         // Apply vertical friction if player is sliding down along a wall
         force.x -= velocity.x * movementFrictionCoefficient;
-        if (surfaceContact && velocity.y < 0)
+        if (wallSliding()) {
             force.y -= velocity.y * wallFrictionCoefficient;
+            Assets.startSoundLoop(Assets.slideSound);
+        } else {
+            Assets.stopSoundLoop(Assets.slideSound);
+        }
 
-        // Once player releases the jump button, set vertical velocity to zero on the next frame
+        // Once player releases the jumpSound button, set vertical velocity to zero on the next frame
         if (velocity.y > 0 && !jumpHold)
             force.y -= mass * velocity.y / (2 * world.dt_physics);
 

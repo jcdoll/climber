@@ -1,0 +1,1785 @@
+<REAPER_PROJECT 0.1 "5.01/x64" 1442550521
+  RIPPLE 0
+  GROUPOVERRIDE 0 0 0
+  AUTOXFADE 1
+  ENVATTACH 1
+  MIXERUIFLAGS 11 48
+  PEAKGAIN 1
+  FEEDBACK 0
+  PANLAW 1
+  PROJOFFS 0 0
+  MAXPROJLEN 0 600
+  GRID 3199 8 1 8 1 0 0
+  TIMEMODE 1 5 -1 30 0
+  VIDEO_CONFIG 0 0 256
+  PANMODE 3
+  CURSOR 84
+  ZOOM 10.47447055298368 0 0
+  VZOOMEX 4
+  USE_REC_CFG 0
+  RECMODE 1
+  SMPTESYNC 0 30 100 40 1000 300 0 0 1
+  LOOP 1
+  LOOPGRAN 0 4
+  RECORD_PATH "" ""
+  <RECORD_CFG
+  >
+  <APPLYFX_CFG
+  >
+  RENDER_FILE "C:\Users\jcdoll\Documents\GitHub\climber\core\assets\ascension.mp3"
+  RENDER_FMT 0 2 44100
+  RENDER_1X 0
+  RENDER_RANGE 2 0 112
+  RENDER_RESAMPLE 3 0 1
+  RENDER_ADDTOPROJ 0
+  RENDER_STEMS 0
+  RENDER_DITHER 0
+  TIMELOCKMODE 1
+  TEMPOENVLOCKMODE 1
+  ITEMMIX 0
+  DEFPITCHMODE 589824
+  TAKELANE 1
+  SAMPLERATE 44100 0 0
+  <RENDER_CFG
+    bDNwbYAAAAABAAAA//////////8EAAAAgAAAAAAAAAA=
+  >
+  LOCK 1
+  <METRONOME 6 2
+    VOL 0.25 0.125
+    FREQ 800 1600 1
+    BEATLEN 4
+    SAMPLES "" ""
+    PATTERN 2863311530 2863311529
+  >
+  GLOBAL_AUTO -1
+  TEMPO 120 4 4
+  PLAYRATE 1 0 0.25 4
+  SELECTION 0 156
+  SELECTION2 0 156
+  MASTERAUTOMODE 0
+  MASTERTRACKHEIGHT 0
+  MASTERPEAKCOL 16576
+  MASTERMUTESOLO 0
+  MASTERTRACKVIEW 0 0.6667 0.5 0.5 -1 -1 -1
+  MASTERHWOUT 0 0 1 0 0 0 0 -1
+  MASTER_NCH 2 2
+  MASTER_VOLUME 1 0 -1 -1 1
+  MASTER_FX 1
+  MASTER_SEL 0
+  <MASTERPLAYSPEEDENV
+    ACT 0
+    VIS 0 1 1
+    LANEHEIGHT 0 0
+    ARM 0
+    DEFSHAPE 0 -1 -1
+  >
+  <TEMPOENVEX
+    ACT 1
+    VIS 1 0 1
+    LANEHEIGHT 0 0
+    ARM 0
+    DEFSHAPE 1 -1 -1
+    PT 0.000000000000 120.0000000000 1
+    PT 124.000000000000 240.0000000000 1
+    PT 156.000000000000 120.0000000000 1 0 1
+  >
+  <PROJBAY
+  >
+  <TRACK {126E1923-B34B-440A-9B2F-2F478779904F}
+    NAME Piano
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    WIDTH 0.81
+    VOLPAN 0.78 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    ISBUS 1 1
+    BUSCOMP 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1
+    FREEMODE 0
+    SEL 0
+    REC 0 0 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {126E1923-B34B-440A-9B2F-2F478779904F}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <WIDTHENV
+      ACT 1
+      VIS 0 1 1
+      LANEHEIGHT 0 0
+      ARM 1
+      DEFSHAPE 0 -1 -1
+      PT 0 1 0
+    >
+    <FXCHAIN
+      WNDRECT 24 52 655 467
+      SHOW 0
+      LASTSEL 2
+      DOCKED 0
+      BYPASS 1 0 0
+      <VST "VSTi: ReaSynth (Cockos)" reasynth.dll 0 "" 1919251321
+        eXNlcu9e7f4AAAAAAgAAAAEAAAAAAAAAAgAAAAAAAAA4AAAAAAAAAAAAEADvvq3eDfCt3qabxDsXt9E6L90kPrByaD6LbKc+AACAP+lniD0AAAAAAAAAPwAAgD8dWkQ/
+        AAAAPwAAEAAAAA==
+      >
+      FLOATPOS 0 0 0 0
+      FXID {1FBF8CAA-51EE-4364-BC89-2C87A59CB891}
+      WAK 0
+      BYPASS 0 0 0
+      <VST "VSTi: 4Front Piano Module (4Front)" "4Front Piano x64.dll" 0 "" 877023310
+        TlBGNO5e7f4AAAAAAgAAAAEAAAAAAAAAAgAAAAAAAAAEAAAAAQAAAAAAEAAAAACAAERlZmF1bHQAEAAAAA==
+      >
+      FLOATPOS 0 0 0 0
+      FXID {5F36B16C-C573-4DE5-AF04-5A1F1445CB75}
+      <PARMENV 0:bypass 0 1 0.5
+        ACT 1
+        VIS 0 1 1
+        LANEHEIGHT 0 0
+        ARM 1
+        DEFSHAPE 1 -1 -1
+        PT 0 0.37 1
+      >
+      WAK 0
+      BYPASS 0 0 0
+      <DX "DX: Sony ExpressFX Reverb" ""
+        BgAAAFYP0hGYhwCgyWlyW0QAAABEAAAAMPyXumIP0hGYhwCgyWlyW+D8//8Q////YP///wYAAAAAAAAAMgAAACMAAAABAAAAFAAAAAEAAADgLgAA8gIAAAAAAAAAAAAA
+        AA==
+      >
+      WET 0.45
+      FLOATPOS 0 0 0 0
+      FXID {08CAD2B1-4EEC-4D39-AC32-E1676B4227C7}
+      <PARMENV 1:wet 0 1 0.5
+        ACT 1
+        VIS 0 1 1
+        LANEHEIGHT 0 0
+        ARM 1
+        DEFSHAPE 0 -1 -1
+        PT 0 0.45 0
+      >
+      WAK 0
+    >
+  >
+  <TRACK {4A16EBC8-1FDE-480B-A7A1-0C6EA9C9BB10}
+    NAME RH1
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    ISBUS 0 0
+    BUSCOMP 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1
+    FREEMODE 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 0
+    TRACKID {4A16EBC8-1FDE-480B-A7A1-0C6EA9C9BB10}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      WNDRECT 24 52 706 467
+      SHOW 0
+      LASTSEL 2
+      DOCKED 0
+      BYPASS 1 0 0
+      <VST "VSTi: ReaSynth (Cockos)" reasynth.dll 0 "" 1919251321
+        eXNlcu9e7f4AAAAAAgAAAAEAAAAAAAAAAgAAAAAAAAA4AAAAAAAAAAAAEADvvq3eDfCt3qabxDsXt9E6L90kPrByaD6LbKc+AACAP+lniD0AAAAAAAAAPwAAgD8dWkQ/
+        AAAAPwAAEAAAAA==
+      >
+      FLOATPOS 24 52 346 420
+      FXID {ABD346B7-4466-4150-AE53-BB688D9FA5CA}
+      WAK 0
+      BYPASS 0 0 0
+      <VST "VSTi: 4Front Piano Module (4Front)" "4Front Piano x64.dll" 0 "" 877023310
+        TlBGNO5e7f4AAAAAAgAAAAEAAAAAAAAAAgAAAAAAAAAEAAAAAQAAAAAAEAAAAACAAERlZmF1bHQAEAAAAA==
+      >
+      FLOATPOS 56 84 495 302
+      FXID {AF6F8CC9-6982-4B6A-AAE1-DB1C0941D3C6}
+      WAK 0
+      BYPASS 0 0 0
+      <DX "DX: Sony ExpressFX Reverb" ""
+        BgAAAFYP0hGYhwCgyWlyW0QAAABEAAAAMPyXumIP0hGYhwCgyWlyW+D8//8Q////YP///wAAAAACAAAAGQAAAB4AAAABAAAAFAAAAAEAAADgLgAA9AEAAAAAAAAAAAAA
+        AA==
+      >
+      FLOATPOS 56 84 361 277
+      FXID {82615BE7-522D-44B9-8D29-AD1F9627FB95}
+      WAK 0
+    >
+    <ITEM
+      POSITION 24
+      SNAPOFFS 0
+      LENGTH 8
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {9644BB90-AA40-40D3-98BE-00C6A008E630}
+      IID 6
+      NAME RH1
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {E6160EC5-06E4-4773-B5B4-FFFCFA3D08F8}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        POOLEDEVTS {ED19A5BE-AA59-4FC6-844F-EA329EBC2461}
+        E 0 90 51 78
+        E 1920 80 51 00
+        E 0 90 51 78
+        E 480 80 51 00
+        E 0 90 53 78
+        E 480 80 53 00
+        E 0 90 55 78
+        E 1920 80 55 00
+        E 960 90 49 78
+        E 960 80 49 00
+        e 0 90 4c 78
+        e 960 80 4c 00
+        E 0 b0 7b 00
+        GUID {A8625AC9-5561-49B3-88D1-823964D65E46}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 5
+        VELLANE -1 100 0
+        CFGEDITVIEW 7200 0.095258 16 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 "{EC01B493-8461-49B8-8246-73F71C0464D0}"
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 32
+      SNAPOFFS 0
+      LENGTH 8
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {2F1D7E4F-A8A0-483E-9FD8-3D418EFD22A7}
+      IID 6
+      NAME RH1
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {3443A0AB-62DE-4072-8442-D939E8C58A2F}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        POOLEDEVTS {86547AF1-CCEA-4E21-839B-002EF63EA0E1}
+        E 0 90 51 78
+        E 1920 80 51 00
+        E 0 90 51 78
+        E 480 80 51 00
+        E 0 90 53 78
+        E 480 80 53 00
+        E 0 90 55 78
+        E 960 80 55 00
+        E 0 90 58 78
+        E 960 80 58 00
+        E 0 90 5a 78
+        E 480 80 5a 00
+        E 0 90 55 78
+        E 1440 80 55 00
+        E 960 b0 7b 00
+        GUID {D94216DC-BF41-492E-8CD9-3AF18C235D12}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 100
+        VELLANE -1 100 0
+        CFGEDITVIEW 0 0.05625 16 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 ""
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 132
+      SNAPOFFS 0
+      LENGTH 4
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {B5C94035-2A32-4855-B544-9E38C011B80C}
+      IID 6
+      NAME RH2B
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      POOLCOLOR 17608828
+      GUID {40AE8EE5-6244-4676-AC21-DA3CF6F58E94}
+      <SOURCE MIDIPOOL
+        HASDATA 1 960 QN
+        POOLEDEVTS {BC601F11-6DD4-43D8-B727-9C635AC3BE92}
+        E 0 90 45 78
+        E 1440 80 45 00
+        E 0 90 47 78
+        E 480 80 47 00
+        E 0 90 49 78
+        E 480 80 49 00
+        E 0 90 4c 78
+        E 480 80 4c 00
+        E 0 90 50 78
+        E 480 80 50 00
+        E 0 90 51 78
+        E 1440 80 51 00
+        E 0 90 4e 78
+        E 480 80 4e 00
+        E 0 90 4c 78
+        E 480 80 4c 00
+        e 0 90 49 78
+        e 1440 80 49 00
+        E 480 b0 7b 00
+        GUID {CB0F4401-2740-48BF-BB87-F2B0B505015E}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 71
+        VELLANE -1 100 0
+        CFGEDITVIEW 0 0.05625 16 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 ""
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 136
+      SNAPOFFS 0
+      LENGTH 4
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {7774B4D4-7F02-47B7-A2E7-EBB8CA634AE5}
+      IID 6
+      NAME RH2B
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      POOLCOLOR 29287068
+      GUID {88C1AAAC-6AA9-46F4-B9EC-4542FDDDE21E}
+      <SOURCE MIDIPOOL
+        HASDATA 1 960 QN
+        POOLEDEVTS {E34D5AB6-9363-44D1-8CD5-E7F39FF0BFF5}
+        E 0 90 45 78
+        E 0 90 49 78
+        E 1440 80 45 00
+        E 0 80 49 00
+        E 0 90 47 78
+        E 480 80 47 00
+        E 0 90 44 78
+        E 480 80 44 00
+        E 0 90 47 78
+        E 480 80 47 00
+        E 0 90 42 78
+        E 480 80 42 00
+        E 0 90 47 78
+        E 480 80 47 00
+        E 0 90 40 78
+        E 480 80 40 00
+        E 0 90 47 78
+        E 480 80 47 00
+        E 0 90 42 78
+        E 480 80 42 00
+        E 0 90 47 78
+        E 480 80 47 00
+        E 0 90 44 78
+        E 480 80 44 00
+        E 0 90 45 78
+        E 480 80 45 00
+        E 0 90 44 78
+        E 0 90 47 78
+        E 960 80 44 00
+        E 0 80 47 00
+        E 0 b0 7b 00
+        GUID {AF8E7E46-5A1E-419D-8708-088CC613DDC8}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 79
+        VELLANE -1 100 0
+        CFGEDITVIEW 0 0.05625 16 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 ""
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 140
+      SNAPOFFS 0
+      LENGTH 4
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {BB3FCEB9-9AA2-40B9-A6C3-11F59B060717}
+      IID 6
+      NAME RH2B
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      POOLCOLOR 17608828
+      GUID {B7821A32-6922-4DAC-809F-15C715D530BD}
+      <SOURCE MIDIPOOL
+        HASDATA 1 960 QN
+        POOLEDEVTS {BC601F11-6DD4-43D8-B727-9C635AC3BE92}
+        GUID {CB0F4401-2740-48BF-BB87-F2B0B505015E}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 71
+        VELLANE -1 100 0
+        CFGEDITVIEW 0 0.05625 16 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 ""
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 144
+      SNAPOFFS 0
+      LENGTH 4
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {65C28E74-628D-4C73-AB82-39502A18F881}
+      IID 6
+      NAME RH2B
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      POOLCOLOR 29287068
+      GUID {02A28CEC-2870-485F-B8A7-71586F49A688}
+      <SOURCE MIDIPOOL
+        HASDATA 1 960 QN
+        POOLEDEVTS {E34D5AB6-9363-44D1-8CD5-E7F39FF0BFF5}
+        GUID {AF8E7E46-5A1E-419D-8708-088CC613DDC8}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 79
+        VELLANE -1 100 0
+        CFGEDITVIEW 0 0.05625 16 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 ""
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+  >
+  <TRACK {07080456-A45A-41F0-AB22-C96D4D0259DC}
+    NAME RH2
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    ISBUS 0 0
+    BUSCOMP 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1
+    FREEMODE 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 0
+    TRACKID {07080456-A45A-41F0-AB22-C96D4D0259DC}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      WNDRECT 24 52 706 467
+      SHOW 0
+      LASTSEL 2
+      DOCKED 0
+      BYPASS 1 0 0
+      <VST "VSTi: ReaSynth (Cockos)" reasynth.dll 0 "" 1919251321
+        eXNlcu9e7f4AAAAAAgAAAAEAAAAAAAAAAgAAAAAAAAA4AAAAAAAAAAAAEADvvq3eDfCt3qabxDsXt9E6L90kPrByaD6LbKc+AACAP+lniD0AAAAAAAAAPwAAgD8dWkQ/
+        AAAAPwAAEAAAAA==
+      >
+      FLOATPOS 24 52 346 420
+      FXID {ABD346B7-4466-4150-AE53-BB688D9FA5CA}
+      WAK 0
+      BYPASS 0 0 0
+      <VST "VSTi: 4Front Piano Module (4Front)" "4Front Piano x64.dll" 0 "" 877023310
+        TlBGNO5e7f4AAAAAAgAAAAEAAAAAAAAAAgAAAAAAAAAEAAAAAQAAAAAAEAAAAACAAERlZmF1bHQAEAAAAA==
+      >
+      FLOATPOS 56 84 495 302
+      FXID {AF6F8CC9-6982-4B6A-AAE1-DB1C0941D3C6}
+      WAK 0
+      BYPASS 0 0 0
+      <DX "DX: Sony ExpressFX Reverb" ""
+        BgAAAFYP0hGYhwCgyWlyW0QAAABEAAAAMPyXumIP0hGYhwCgyWlyW+D8//8Q////YP///wAAAAACAAAAGQAAAB4AAAABAAAAFAAAAAEAAADgLgAA9AEAAAAAAAAAAAAA
+        AA==
+      >
+      FLOATPOS 56 84 361 277
+      FXID {82615BE7-522D-44B9-8D29-AD1F9627FB95}
+      WAK 0
+    >
+    <ITEM
+      POSITION 40
+      SNAPOFFS 0
+      LENGTH 8
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {F96283BB-427D-4CA4-977F-A4C50F686BB9}
+      IID 6
+      NAME RH2A
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {29E68FB0-F71A-48D7-B4FE-630A1201E394}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        POOLEDEVTS {B541C114-1C9F-4498-B626-B1B430C37363}
+        E 0 90 45 78
+        E 0 90 51 78
+        E 1920 80 45 00
+        E 0 80 51 00
+        E 0 90 45 78
+        E 0 90 51 78
+        E 480 80 45 00
+        E 0 80 51 00
+        E 0 90 53 78
+        E 480 80 53 00
+        E 0 90 55 78
+        E 960 80 55 00
+        E 0 90 58 78
+        E 960 80 58 00
+        E 0 90 5a 78
+        E 480 80 5a 00
+        e 0 90 55 78
+        e 1440 80 55 00
+        E 960 b0 7b 00
+        GUID {32145D9C-94A5-4330-BDC1-2ABFEF3918CA}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 101
+        VELLANE -1 100 0
+        CFGEDITVIEW 0 0.05625 16 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 ""
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 48
+      SNAPOFFS 0
+      LENGTH 8
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {6AEC29A6-9D2B-4B62-881D-09FA77FA119B}
+      IID 6
+      NAME RH2A
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {2424DFDC-150D-4293-BBC1-1F6067ABB6C8}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        POOLEDEVTS {0B807BA0-CCCB-4772-9FFE-8CF06F429975}
+        E 0 90 45 78
+        E 0 90 51 78
+        E 1920 80 45 00
+        E 0 80 51 00
+        E 0 90 45 78
+        E 0 90 51 78
+        E 480 80 45 00
+        E 0 80 51 00
+        E 0 90 53 78
+        E 480 80 53 00
+        E 0 90 49 78
+        E 0 90 55 78
+        E 960 80 49 00
+        E 0 80 55 00
+        E 0 90 4c 78
+        E 0 90 58 78
+        E 960 80 4c 00
+        E 0 80 58 00
+        E 0 90 5a 78
+        E 480 80 5a 00
+        E 0 90 4e 78
+        E 0 90 51 78
+        E 0 90 55 78
+        E 1440 80 4e 00
+        E 0 80 51 00
+        E 0 80 55 00
+        E 0 90 40 78
+        E 0 90 49 78
+        E 0 90 4c 78
+        E 960 80 40 00
+        E 0 80 49 00
+        E 0 80 4c 00
+        E 0 b0 7b 00
+        GUID {95BA458C-E512-4C65-A993-A023359602C0}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 16
+        VELLANE -1 100 0
+        CFGEDITVIEW 0 0.05625 16 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 "{EC01B493-8461-49B8-8246-73F71C0464D0}"
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 56
+      SNAPOFFS 0
+      LENGTH 48
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {E9232460-694A-451F-AEF0-A042A86CE8C2}
+      IID 6
+      NAME RH2B
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {C470CF4F-74D2-4B33-97CC-126CBA459E8F}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        POOLEDEVTS {624D5EA4-B9D7-4AF3-90CB-39CAA0CDD111}
+        E 0 90 45 78
+        E 0 90 51 78
+        E 1920 80 45 00
+        E 0 80 51 00
+        E 0 90 45 78
+        E 0 90 51 78
+        E 480 80 45 00
+        E 0 80 51 00
+        E 0 90 53 78
+        E 480 80 53 00
+        E 0 90 49 78
+        E 0 90 55 78
+        E 960 80 49 00
+        E 0 80 55 00
+        E 0 90 4c 78
+        E 0 90 58 78
+        E 1920 80 4c 00
+        E 0 80 58 00
+        E 0 90 55 78
+        E 960 80 55 00
+        E 0 90 51 78
+        E 960 80 51 00
+        E 0 90 4e 78
+        E 960 80 4e 00
+        E 0 90 40 78
+        E 0 90 45 78
+        E 0 90 4c 78
+        E 1920 80 40 00
+        E 0 80 45 00
+        E 0 80 4c 00
+        E 0 90 42 78
+        E 0 90 49 78
+        E 960 80 42 00
+        E 0 80 49 00
+        E 0 90 45 78
+        E 0 90 4c 78
+        E 1920 80 45 00
+        E 0 80 4c 00
+        E 0 90 49 78
+        E 480 80 49 00
+        E 0 90 47 78
+        E 480 80 47 00
+        E 0 90 45 78
+        E 480 80 45 00
+        E 0 90 42 78
+        E 0 90 47 78
+        E 480 80 42 00
+        E 0 80 47 00
+        E 0 b0 7b 00
+        GUID {53E90739-9D27-4AB6-88D0-C2AE12A8C28F}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 37
+        VELLANE -1 100 0
+        CFGEDITVIEW 14613.347846 0.05625 16 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 "{EC01B493-8461-49B8-8246-73F71C0464D0}"
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 104
+      SNAPOFFS 0
+      LENGTH 8
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {31A95869-1859-4ADF-B432-0F2ECBB0E8DB}
+      IID 6
+      NAME RH2B
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {36C5EC2A-8023-46EE-AEDA-AEF388610DDC}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        POOLEDEVTS {7EE4FA7D-128A-47AD-8320-EDC8A15B8DBF}
+        E 0 90 45 78
+        E 1440 80 45 00
+        E 0 90 42 78
+        E 480 80 42 00
+        E 0 90 40 78
+        E 480 80 40 00
+        E 0 90 3e 78
+        E 480 80 3e 00
+        E 0 90 40 78
+        E 480 80 40 00
+        E 0 90 39 78
+        E 0 90 42 78
+        E 2400 80 39 00
+        E 0 80 42 00
+        E 0 90 3d 78
+        E 960 80 3d 00
+        e 0 90 40 78
+        e 960 80 40 00
+        E 0 b0 7b 00
+        GUID {7958CD1C-4591-4539-BF5D-6CCACFAC0621}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 54
+        VELLANE -1 100 0
+        CFGEDITVIEW -1424.058213 0.028125 16 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 "{EC01B493-8461-49B8-8246-73F71C0464D0}"
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 112
+      SNAPOFFS 0
+      LENGTH 12
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {0C0C19BE-B61F-42D2-9F2C-D3D59C86DE82}
+      IID 6
+      NAME RH2B
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {42346EDC-53E8-43BA-875B-EAB3A5EC0F32}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        POOLEDEVTS {8028635F-AD31-46A5-AA55-2A24BD29ADEE}
+        E 0 90 45 78
+        E 1440 80 45 00
+        E 0 90 42 78
+        E 480 80 42 00
+        E 0 90 40 78
+        E 480 80 40 00
+        E 0 90 3e 78
+        E 480 80 3e 00
+        E 0 90 40 78
+        E 480 80 40 00
+        E 0 90 39 78
+        E 0 90 42 78
+        E 1440 80 39 00
+        E 0 80 42 00
+        E 0 90 40 78
+        E 0 90 45 78
+        E 480 80 40 00
+        E 0 80 45 00
+        E 0 90 3d 78
+        E 0 90 49 78
+        E 480 80 3d 00
+        E 0 80 49 00
+        E 0 90 40 78
+        E 0 90 45 78
+        E 960 80 40 00
+        E 0 80 45 00
+        E 0 90 3d 78
+        E 0 90 49 78
+        E 960 80 3d 00
+        E 0 80 49 00
+        E 0 90 39 78
+        E 0 90 40 78
+        E 0 90 45 78
+        E 5760 80 39 00
+        E 0 80 40 00
+        E 0 80 45 00
+        E 0 90 3d 78
+        E 0 90 49 78
+        E 960 80 3d 00
+        E 0 80 49 00
+        E 0 90 40 78
+        E 0 90 4c 78
+        E 960 80 40 00
+        E 0 80 4c 00
+        E 0 90 45 78
+        E 0 90 49 78
+        E 0 90 51 78
+        E 7680 80 45 00
+        E 0 80 49 00
+        E 0 80 51 00
+        E 0 b0 7b 00
+        GUID {F159B91B-287B-45F8-BAAB-C6473E1DAE3B}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 55
+        VELLANE -1 100 0
+        CFGEDITVIEW -1208.731877 0.033255 16 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 "{EC01B493-8461-49B8-8246-73F71C0464D0}"
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+  >
+  <TRACK {F69C3BA7-0631-43EB-859E-3A73AAAB9CA0}
+    NAME LH1
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    ISBUS 0 0
+    BUSCOMP 1 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1
+    FREEMODE 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 0
+    TRACKID {F69C3BA7-0631-43EB-859E-3A73AAAB9CA0}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      WNDRECT -1536 149 1093 669
+      SHOW 0
+      LASTSEL 2
+      DOCKED 0
+      BYPASS 0 0 0
+      <VST "VSTi: 4Front Piano Module (4Front)" "4Front Piano x64.dll" 0 "" 877023310
+        TlBGNO5e7f4AAAAAAgAAAAEAAAAAAAAAAgAAAAAAAAAEAAAAAQAAAAAAEAAAAACAAERlZmF1bHQAEAAAAA==
+      >
+      FLOATPOS 0 0 0 0
+      FXID {92EF081F-498C-4352-B3D3-C9242AC63496}
+      WAK 0
+      BYPASS 0 0 0
+      <DX "DX: Sony ExpressFX Reverb" ""
+        BgAAAFYP0hGYhwCgyWlyW0QAAABEAAAAMPyXumIP0hGYhwCgyWlyW+D8//8Q////YP///wAAAAACAAAAGQAAAB4AAAABAAAAFAAAAAEAAADgLgAA9AEAAAAAAAAAAAAA
+        AA==
+      >
+      FLOATPOS 0 0 0 0
+      FXID {690602FB-F85F-406F-8CF6-C6484286EAB3}
+      WAK 0
+      BYPASS 1 0 0
+      <VST "VSTi: ReaSynth (Cockos)" reasynth.dll 0 "" 1919251321
+        eXNlcu9e7f4AAAAAAgAAAAEAAAAAAAAAAgAAAAAAAAA4AAAAAAAAAAAAEADvvq3eDfCt3qabxDsXt9E6L90kPrByaD6LbKc+AACAP+lniD0AAAAAAAAAPwAAgD8dWkQ/
+        AAAAPwAAEAAAAA==
+      >
+      FLOATPOS 0 0 0 0
+      FXID {AB0916C1-BC5B-46F4-8F46-B28E39B0B783}
+      WAK 0
+    >
+    <ITEM
+      POSITION 0
+      SNAPOFFS 0
+      LENGTH 120
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {4B1D8284-60EF-40CB-875A-48BFCAC22989}
+      IID 5
+      NAME LH1
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      POOLCOLOR 24706945
+      GUID {CBBB5851-08F2-46EA-A009-6142F31CD084}
+      <SOURCE MIDIPOOL
+        HASDATA 1 960 QN
+        POOLEDEVTS {B0EA34B8-8A4A-4B0A-9D9E-15B386732E5F}
+        E 0 90 21 4b
+        E 1920 80 21 00
+        E 0 90 26 4b
+        E 1920 80 26 00
+        E 0 90 2a 4b
+        E 1920 80 2a 00
+        E 0 90 1a 4b
+        E 1920 80 1a 00
+        E 0 b0 7b 00
+        GUID {C1828777-12D9-4C86-8CEE-608CE78B2598}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 8
+        VELLANE -1 100 0
+        CFGEDITVIEW -1400.819175 0.028736 16 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 1 0 "{EC01B493-8461-49B8-8246-73F71C0464D0}"
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 120
+      SNAPOFFS 0
+      LENGTH 4
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {84E13CF5-6A5A-4BAF-A6FB-6ADACC9DBDFE}
+      IID 5
+      NAME LH1
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {E393D7A3-D064-412D-8D0E-F08A00D60DE0}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        POOLEDEVTS {9CBE60D0-DFB8-4510-8E5E-7555C9E46BBF}
+        E 0 90 21 60
+        E 0 90 2d 60
+        E 7680 80 21 00
+        E 0 80 2d 00
+        E 0 b0 7b 00
+        GUID {F90CC490-B490-4F38-B01B-D7B9F798283C}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 67
+        VELLANE -1 100 0
+        CFGEDITVIEW -947.247744 0.042237 38 9 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 1 0 "{EC01B493-8461-49B8-8246-73F71C0464D0}"
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 124
+      SNAPOFFS 0
+      LENGTH 4
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {A885F44A-659B-4B79-AC17-07BC223BB6A6}
+      IID 6
+      NAME RH2B
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {E8E616A1-BAB1-4204-8FE0-4BE148019D62}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        POOLEDEVTS {D0090C91-649C-4A2F-BF00-C7C2358477F5}
+        e 0 90 39 78
+        e 480 80 39 00
+        e 480 90 39 78
+        e 480 80 39 00
+        e 480 90 39 78
+        e 480 80 39 00
+        e 480 90 39 78
+        e 480 80 39 00
+        e 480 90 39 78
+        e 480 80 39 00
+        e 0 90 34 78
+        e 960 80 34 00
+        e 0 90 32 78
+        e 480 80 32 00
+        e 0 90 36 78
+        e 480 80 36 00
+        e 480 90 38 78
+        e 480 80 38 00
+        E 480 b0 7b 00
+        GUID {FEF1033F-AE73-44EB-8DBA-47F8DFCE68DF}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 58
+        VELLANE -1 100 0
+        CFGEDITVIEW -1064.708595 0.037456 16 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 ""
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 128
+      SNAPOFFS 0
+      LENGTH 8
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {3EB7D130-CBBE-4AF3-873D-EEB72F3BC054}
+      IID 6
+      NAME RH2B
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      POOLCOLOR 23742060
+      GUID {EA957C9F-56E9-46D5-8DC6-729CFCA82B6A}
+      <SOURCE MIDIPOOL
+        HASDATA 1 960 QN
+        POOLEDEVTS {1673E774-39AA-4700-ADEE-D83570E963E7}
+        e 0 90 39 78
+        e 0 90 3d 78
+        e 0 90 40 78
+        e 480 80 39 00
+        e 0 80 3d 00
+        e 0 80 40 00
+        e 480 90 39 78
+        e 0 90 3d 78
+        e 0 90 40 78
+        e 480 80 39 00
+        e 0 80 3d 00
+        e 0 80 40 00
+        e 480 90 39 78
+        e 0 90 3d 78
+        e 0 90 40 78
+        e 480 80 39 00
+        e 0 80 3d 00
+        e 0 80 40 00
+        e 480 90 39 78
+        e 0 90 3d 78
+        e 0 90 40 78
+        e 480 80 39 00
+        e 0 80 3d 00
+        e 0 80 40 00
+        e 480 90 39 78
+        e 0 90 3d 78
+        e 0 90 40 78
+        e 480 80 39 00
+        e 0 80 3d 00
+        e 0 80 40 00
+        e 0 90 36 78
+        e 0 90 3b 78
+        e 960 80 36 00
+        e 0 80 3b 00
+        e 0 90 2d 78
+        e 0 90 32 78
+        e 480 80 2d 00
+        e 0 80 32 00
+        e 0 90 36 78
+        e 0 90 3b 78
+        e 480 80 36 00
+        e 0 80 3b 00
+        e 480 90 38 78
+        e 0 90 3e 78
+        e 480 80 38 00
+        e 0 80 3e 00
+        E 480 b0 7b 00
+        GUID {C2D285C7-058E-461B-8B60-674476BA237D}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 65
+        VELLANE -1 100 0
+        CFGEDITVIEW -16348.22112 0.042237 16 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 ""
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 136
+      SNAPOFFS 0
+      LENGTH 4
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {964C688D-771B-4B5A-95D6-0A04B46C4018}
+      IID 6
+      NAME RH2B
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      POOLCOLOR 28340995
+      GUID {77E140B1-E53E-45D4-AD57-BAEEF4AA128C}
+      <SOURCE MIDIPOOL
+        HASDATA 1 960 QN
+        POOLEDEVTS {3BB578D9-0BF6-4761-93F7-D30CC222E78E}
+        E 0 90 2d 78
+        E 0 90 31 78
+        E 0 90 34 78
+        E 480 80 2d 00
+        E 0 80 31 00
+        E 0 80 34 00
+        E 480 90 2d 78
+        E 0 90 31 78
+        E 0 90 34 78
+        E 480 80 2d 00
+        E 0 80 31 00
+        E 0 80 34 00
+        E 480 90 2c 78
+        E 0 90 2f 78
+        E 0 90 32 78
+        E 480 80 2c 00
+        E 0 80 2f 00
+        E 0 80 32 00
+        E 480 90 2a 78
+        E 0 90 2d 78
+        E 0 90 31 78
+        E 480 80 2a 00
+        E 0 80 2d 00
+        E 0 80 31 00
+        E 480 90 28 78
+        E 0 90 2c 78
+        E 0 90 2f 78
+        E 480 80 28 00
+        E 0 80 2c 00
+        E 0 80 2f 00
+        E 480 90 28 78
+        E 0 90 2c 78
+        E 0 90 2f 78
+        E 480 80 28 00
+        E 0 80 2c 00
+        E 0 80 2f 00
+        E 480 90 2a 78
+        E 0 90 2d 78
+        E 0 90 31 78
+        E 480 80 2a 00
+        E 0 80 2d 00
+        E 0 80 31 00
+        e 480 90 2c 78
+        E 0 90 2f 78
+        E 0 90 32 78
+        e 480 80 2c 00
+        E 0 80 2f 00
+        E 0 80 32 00
+        E 480 b0 7b 00
+        GUID {EC01B493-8461-49B8-8246-73F71C0464D0}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 80
+        VELLANE -1 100 0
+        CFGEDITVIEW -561.8194 0.05625 57 12 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 ""
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 140
+      SNAPOFFS 0
+      LENGTH 4
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {985AD83D-816B-48AB-829A-A04F260FECA3}
+      IID 6
+      NAME RH2B
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      POOLCOLOR 23742060
+      GUID {30FB4E9C-1279-47AE-ABFF-BFAE224E27B2}
+      <SOURCE MIDIPOOL
+        HASDATA 1 960 QN
+        POOLEDEVTS {1673E774-39AA-4700-ADEE-D83570E963E7}
+        GUID {C2D285C7-058E-461B-8B60-674476BA237D}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 65
+        VELLANE -1 100 0
+        CFGEDITVIEW -16348.22112 0.042237 16 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 ""
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 144
+      SNAPOFFS 0
+      LENGTH 4
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {66E08848-3F8A-4062-B3B5-3B908BB849A0}
+      IID 6
+      NAME RH2B
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      POOLCOLOR 28340995
+      GUID {285B0248-B779-4FE4-A925-64A65FA4F024}
+      <SOURCE MIDIPOOL
+        HASDATA 1 960 QN
+        POOLEDEVTS {3BB578D9-0BF6-4761-93F7-D30CC222E78E}
+        GUID {EC01B493-8461-49B8-8246-73F71C0464D0}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 80
+        VELLANE -1 100 0
+        CFGEDITVIEW -561.8194 0.05625 57 12 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 ""
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 148
+      SNAPOFFS 0
+      LENGTH 4
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {64321896-BA8D-47BE-A897-25191985B895}
+      IID 5
+      NAME LH1
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {AD915FEC-B888-47C2-81DD-F868969B0596}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        POOLEDEVTS {C53D73ED-AB8B-4EEA-AB84-A4EFD518EDD3}
+        E 0 90 21 4b
+        E 480 80 21 00
+        E 480 90 21 4b
+        E 480 80 21 00
+        E 480 90 26 4b
+        E 480 80 26 00
+        E 480 90 26 4b
+        E 480 80 26 00
+        E 480 90 2a 4b
+        E 480 80 2a 00
+        E 480 90 2a 4b
+        E 480 80 2a 00
+        E 480 90 1a 4b
+        E 480 80 1a 00
+        e 480 90 1a 4b
+        e 480 80 1a 00
+        E 480 b0 7b 00
+        GUID {94B05A4A-7649-491F-A729-7725F4DB9863}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 103
+        VELLANE -1 100 0
+        CFGEDITVIEW -537.866701 0.074912 51 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 ""
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 152
+      SNAPOFFS 0
+      LENGTH 4
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {977E7882-0A40-4416-AEC2-E7A9921668B5}
+      IID 5
+      NAME LH1
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      POOLCOLOR 24706945
+      GUID {03F75398-C7A7-4920-9A99-9651269E03B2}
+      <SOURCE MIDIPOOL
+        HASDATA 1 960 QN
+        POOLEDEVTS {B0EA34B8-8A4A-4B0A-9D9E-15B386732E5F}
+        GUID {C1828777-12D9-4C86-8CEE-608CE78B2598}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 8
+        VELLANE -1 100 0
+        CFGEDITVIEW -1400.819175 0.028736 16 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 ""
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+  >
+  <TRACK {5FBA94B5-F960-4D71-BBA0-7E13CB23B14C}
+    NAME LH2
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    ISBUS 2 -1
+    BUSCOMP 1 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1
+    FREEMODE 0
+    SEL 0
+    REC 0 5088 1 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 0
+    TRACKID {5FBA94B5-F960-4D71-BBA0-7E13CB23B14C}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      WNDRECT -1536 149 1093 669
+      SHOW 0
+      LASTSEL 2
+      DOCKED 0
+      BYPASS 0 0 0
+      <VST "VSTi: 4Front Piano Module (4Front)" "4Front Piano x64.dll" 0 "" 877023310
+        TlBGNO5e7f4AAAAAAgAAAAEAAAAAAAAAAgAAAAAAAAAEAAAAAQAAAAAAEAAAAACAAERlZmF1bHQAEAAAAA==
+      >
+      FLOATPOS 0 0 0 0
+      FXID {92EF081F-498C-4352-B3D3-C9242AC63496}
+      WAK 0
+      BYPASS 0 0 0
+      <DX "DX: Sony ExpressFX Reverb" ""
+        BgAAAFYP0hGYhwCgyWlyW0QAAABEAAAAMPyXumIP0hGYhwCgyWlyW+D8//8Q////YP///wAAAAACAAAAGQAAAB4AAAABAAAAFAAAAAEAAADgLgAA9AEAAAAAAAAAAAAA
+        AA==
+      >
+      FLOATPOS 0 0 0 0
+      FXID {690602FB-F85F-406F-8CF6-C6484286EAB3}
+      WAK 0
+      BYPASS 1 0 0
+      <VST "VSTi: ReaSynth (Cockos)" reasynth.dll 0 "" 1919251321
+        eXNlcu9e7f4AAAAAAgAAAAEAAAAAAAAAAgAAAAAAAAA4AAAAAAAAAAAAEADvvq3eDfCt3qabxDsXt9E6L90kPrByaD6LbKc+AACAP+lniD0AAAAAAAAAPwAAgD8dWkQ/
+        AAAAPwAAEAAAAA==
+      >
+      FLOATPOS 0 0 0 0
+      FXID {AB0916C1-BC5B-46F4-8F46-B28E39B0B783}
+      WAK 0
+    >
+    <ITEM
+      POSITION 8
+      SNAPOFFS 0
+      LENGTH 8
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0.030526 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {58F36103-4F1E-4EDA-A205-321B3DB85227}
+      IID 5
+      NAME LH2
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {485FA659-C247-42A3-BCA8-506EC8997080}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        POOLEDEVTS {867E0987-3058-4C88-922D-672657473575}
+        E 0 90 2d 55
+        E 0 90 31 55
+        E 0 90 34 55
+        E 960 80 2d 00
+        E 0 80 31 00
+        E 0 80 34 00
+        E 0 90 2d 55
+        E 0 90 32 55
+        E 0 90 36 55
+        E 960 80 2d 00
+        E 0 80 32 00
+        E 0 80 36 00
+        E 0 90 2d 55
+        E 0 90 32 55
+        E 0 90 36 55
+        E 960 80 2d 00
+        E 0 80 32 00
+        E 0 80 36 00
+        E 0 90 2a 55
+        E 0 90 2d 55
+        E 0 90 36 55
+        E 4800 80 2a 00
+        E 0 80 2d 00
+        E 0 80 36 00
+        E 0 b0 7b 00
+        GUID {49C9E87E-2AA1-4A3B-8702-B99628927146}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 53
+        VELLANE -1 100 0
+        CFGEDITVIEW 0 0.05625 16 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 "{EC01B493-8461-49B8-8246-73F71C0464D0}"
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 16
+      SNAPOFFS 0
+      LENGTH 88
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0.030526 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {26D48428-4FEC-478F-95AD-8C7D030D9DC8}
+      IID 5
+      NAME LH2
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {E156EE25-90E0-4772-9AC5-42E989B2F7A6}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        POOLEDEVTS {DB8C9AAD-812A-4F33-A7D3-92F46277425C}
+        E 0 90 2d 55
+        E 0 90 31 55
+        E 0 90 34 55
+        E 960 80 2d 00
+        E 0 80 31 00
+        E 0 80 34 00
+        E 0 90 2d 55
+        E 0 90 32 55
+        E 0 90 36 55
+        E 960 80 2d 00
+        E 0 80 32 00
+        E 0 80 36 00
+        E 0 90 2d 55
+        E 0 90 32 55
+        E 0 90 36 55
+        E 960 80 2d 00
+        E 0 80 32 00
+        E 0 80 36 00
+        E 0 90 2a 55
+        E 0 90 2d 55
+        E 0 90 36 55
+        E 2880 80 2a 00
+        E 0 80 2d 00
+        E 0 80 36 00
+        E 0 90 1a 55
+        E 0 90 21 55
+        e 0 90 26 55
+        E 960 80 1a 00
+        E 0 80 21 00
+        e 0 80 26 00
+        E 0 90 1c 55
+        E 0 90 23 55
+        E 0 90 28 55
+        E 960 80 1c 00
+        E 0 80 23 00
+        E 0 80 28 00
+        E 0 b0 7b 00
+        GUID {4A37CB06-7284-4671-AE41-F0044140E135}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 4
+        VELLANE -1 100 0
+        CFGEDITVIEW -602.491227 0.066877 16 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 "{EC01B493-8461-49B8-8246-73F71C0464D0}"
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+  >
+  <TRACK {BB0EDDC1-CEBD-42B6-9AD3-16ED6EA97794}
+    NAME "Synth LH"
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    WIDTH 0.81
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    ISBUS 0 0
+    BUSCOMP 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1
+    FREEMODE 0
+    SEL 0
+    REC 0 0 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {BB0EDDC1-CEBD-42B6-9AD3-16ED6EA97794}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      WNDRECT -1427 166 735 522
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+      BYPASS 0 0 0
+      <VST "VSTi: ReaSynth (Cockos)" reasynth.dll 0 "" 1919251321
+        eXNlcu9e7f4AAAAAAgAAAAEAAAAAAAAAAgAAAAAAAAA4AAAAAAAAAAAAEADvvq3eDfCt3idSvDuA48o6zczMPgAAAAAAAAAAGqq1Pr5whz0AAAAAAAAAPwAAgD8AAIA/
+        AAAAPwAAEAAAAA==
+      >
+      FLOATPOS 0 0 0 0
+      FXID {1FBF8CAA-51EE-4364-BC89-2C87A59CB891}
+      WAK 0
+      BYPASS 0 0 0
+      <DX "DX: Sony ExpressFX Reverb" ""
+        BgAAAFYP0hGYhwCgyWlyW0QAAABEAAAAMPyXumIP0hGYhwCgyWlyW+D8//8Q////YP///wYAAAAAAAAAMgAAACMAAAABAAAAFAAAAAEAAADgLgAA8gIAAAAAAAAAAAAA
+        AA==
+      >
+      WET 0.45
+      FLOATPOS 0 0 0 0
+      FXID {08CAD2B1-4EEC-4D39-AC32-E1676B4227C7}
+      WAK 0
+    >
+    <ITEM
+      POSITION 64
+      SNAPOFFS 0
+      LENGTH 32
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0.030526 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {0FD9027C-B4E2-41F8-B105-BF31FCEC03D7}
+      IID 5
+      NAME LH2
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {BA76D757-9A5E-4DD5-BB94-EAAA44D7EE80}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        POOLEDEVTS {B145D2A1-7C36-4CE6-AD36-63A13E970E72}
+        E 0 90 34 55
+        E 960 80 34 00
+        E 0 90 36 55
+        E 1920 80 36 00
+        e 0 90 2a 55
+        E 0 90 36 55
+        e 4800 80 2a 00
+        E 0 80 36 00
+        E 0 b0 7b 00
+        GUID {11CCA500-9958-4457-9B26-5CFC54AC1DB5}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 40
+        VELLANE -1 100 0
+        CFGEDITVIEW 0 0.05625 16 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 "{EC01B493-8461-49B8-8246-73F71C0464D0}"
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+    <ITEM
+      POSITION 128
+      SNAPOFFS 0
+      LENGTH 20
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {C5031744-2ECC-4912-A703-F969CFFADB64}
+      IID 6
+      NAME RH2B
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {55258627-F7DD-463A-A6E2-FE1DDBFFB8C2}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        POOLEDEVTS {7E1C7C5E-E5F7-4B25-9BD4-9EF0D16F40A0}
+        E 0 90 2d 60
+        E 480 80 2d 00
+        E 480 90 2d 63
+        E 480 80 2d 00
+        E 480 90 2d 63
+        E 480 80 2d 00
+        E 480 90 2d 63
+        E 480 80 2d 00
+        E 480 90 2d 63
+        E 480 80 2d 00
+        E 480 90 28 63
+        E 480 80 28 00
+        E 480 90 2a 63
+        E 480 80 2a 00
+        E 480 90 2c 63
+        E 480 80 2c 00
+        E 480 b0 7b 00
+        GUID {03D68D4D-0189-451F-9215-2CB1EEE762D5}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 99
+        VELLANE -1 100 0
+        CFGEDITVIEW 26259.504762 0.05625 56 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 ""
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+  >
+  <TRACK {989B4944-CC92-4769-A87D-D601E40C8D8A}
+    NAME "Synth RH"
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    WIDTH 0.81
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    ISBUS 0 0
+    BUSCOMP 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1
+    FREEMODE 0
+    SEL 1
+    REC 0 0 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {989B4944-CC92-4769-A87D-D601E40C8D8A}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      WNDRECT -837 202 735 522
+      SHOW 0
+      LASTSEL 1
+      DOCKED 0
+      BYPASS 0 0 0
+      <VST "VSTi: ReaSynth (Cockos)" reasynth.dll 0 "" 1919251321
+        eXNlcu9e7f4AAAAAAgAAAAEAAAAAAAAAAgAAAAAAAAA4AAAAAAAAAAAAEADvvq3eDfCt3idSvDuA48o6UI0XPx1aZD5OYpA+hxg2Pr5whz0AAAAAAAAAPwAAgD8AAIA/
+        AAAAPwAAEAAAAA==
+      >
+      FLOATPOS 0 0 0 0
+      FXID {1FBF8CAA-51EE-4364-BC89-2C87A59CB891}
+      WAK 0
+      BYPASS 1 0 0
+      <DX "DX: Sony ExpressFX Reverb" ""
+        BgAAAFYP0hGYhwCgyWlyW0QAAABEAAAAMPyXumIP0hGYhwCgyWlyW+D8//8Q////YP///wYAAAAAAAAAMgAAACMAAAABAAAAFAAAAAEAAADgLgAA8gIAAAAAAAAAAAAA
+        AA==
+      >
+      WET 0.45
+      FLOATPOS 0 0 0 0
+      FXID {08CAD2B1-4EEC-4D39-AC32-E1676B4227C7}
+      WAK 0
+    >
+    <ITEM
+      POSITION 72
+      SNAPOFFS 0
+      LENGTH 16
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0 0 1 0 0
+      FADEOUT 1 0 0 1 0 0
+      MUTE 0
+      SEL 0
+      IGUID {8EC0AADA-7935-422A-8AC2-732565A70C40}
+      IID 6
+      NAME RH3
+      VOLPAN 1 0 1 -1
+      SOFFS 0 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {676B5490-92B1-4FCE-B4BE-BA97FD8F98C8}
+      <SOURCE MIDI
+        HASDATA 1 960 QN
+        POOLEDEVTS {F568B6C0-4976-471D-B205-AEFFEA6CF42D}
+        E 0 90 51 78
+        E 2400 80 51 00
+        E 0 90 53 78
+        E 480 80 53 00
+        E 0 90 55 78
+        E 960 80 55 00
+        E 0 90 58 78
+        E 1920 80 58 00
+        E 0 90 55 78
+        E 960 80 55 00
+        E 0 90 51 78
+        E 960 80 51 00
+        E 0 90 4e 78
+        E 960 80 4e 00
+        e 0 90 4c 78
+        e 4800 80 4c 00
+        E 1920 b0 7b 00
+        GUID {74D45E54-0A20-4B5C-8761-AFF032EBAE4C}
+        IGNTEMPO 0 120 4 4
+        SRCCOLOR 38
+        VELLANE -1 100 0
+        CFGEDITVIEW 11520 0.05625 16 11 0 0 0 0 0
+        KEYSNAP 1 9 102034050607 0 Major
+        TRACKSEL 252 0 0 "{EC01B493-8461-49B8-8246-73F71C0464D0}"
+        EVTFILTER 0 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
+        CFGEDIT 1 1 0 1 0 0 1 1 1 1 1 0.5 -8 -8 1928 1088 0 0 0 4 0 0 0 0 0 0.5 0 0 1 64
+      >
+    >
+  >
+>
