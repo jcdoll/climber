@@ -1,15 +1,19 @@
 package com.batdog.climber;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 class World {
     Player player;
-    public final List<Box> blocks = new ArrayList<>();
+    public final List<Box> obstacleBlocks = new ArrayList<>();
+    public final List<Box> backgroundBlocks = new ArrayList<>();
+    Random random = new Random();
+    float worldDifficulty = 0f;
 
     final float PLAYER_HEIGHT = 1f;
     final float PLAYER_WIDTH = 1f;
@@ -21,45 +25,82 @@ class World {
     Vector2 gravityDir = new Vector2(0f, -1f);
 
     public World() {
-        // Create player
+        // Instantiate player
         player = new Player(this);
         player.setPosition(0f, 5f);
         player.setVelocity(0f, 0f);
         player.setExtents(PLAYER_WIDTH, PLAYER_HEIGHT);
         player.setTexture(Assets.player);
         player.setMass(PLAYER_MASS);
+        player.setColor(new Color(1f, 1f, 1f, 1f));
         player.jumpDir = gravityDir.cpy().scl(-1f);
 
-        generateWorld();
+        // Create starting platform
+        Box testBlock = new Box(this, -10f, -2f, 20f, 2f);
+        testBlock.setTexture(Assets.boundary);
+        obstacleBlocks.add(testBlock);
+
+        // Generate other obstacleBlocks
+        generateObstacles(new Color(1f, 1f, 1f, 1f));
+        generateBackground(new Color(11/255f, 132/255f, 199/255f, 1f));
     }
 
-    private void generateWorld () {
-        // Create normal blocks
-        Box testBlock = new Box(-10f, -2f, 20f, 2f);
-        testBlock.setTexture(Assets.boundary);
-        blocks.add(testBlock);
-
-        // TODO: Dynamically generate blocks above player
+    private void generateObstacles(Color c) {
+        // TODO: Dynamically generate obstacleBlocks above player
         // TODO: Death mechanic for falling and returning to previous spot
         // TODO: Other block shapes
         // TODO: Rule-based generation
-        float currentMaxHeight = testBlock.getTop();
+        float currentMaxHeight = obstacleBlocks.get(obstacleBlocks.size() - 1).getTop();
+        Box testBlock;
         for (int i = 0; i < 1000; i++) {
             float x = MathUtils.random(-10, 10);
             float y = currentMaxHeight + MathUtils.random(1, 5);
             float w = MathUtils.random(1, 3);
             float h = MathUtils.random(3, 10);
 
-            testBlock = new Box(x, y, w, h);
+            testBlock = new Box(this, x, y, w, h);
             testBlock.setTexture(Assets.boundary);
-            blocks.add(testBlock);
+            testBlock.setColor(c);
+            obstacleBlocks.add(testBlock);
             currentMaxHeight = y + h;
         }
     }
 
+    private void generateBackground(Color c) {
+        float minHeight = obstacleBlocks.get(0).getBottom();
+        float maxHeight = obstacleBlocks.get(obstacleBlocks.size() - 1).getTop();
+
+        Box testBlock;
+        for (int i = 0; i < 1000; i++) {
+            float x = MathUtils.random(-50, 50);
+            float y = MathUtils.random(minHeight, maxHeight);
+            float w = MathUtils.random(5, 20);
+            float h = MathUtils.random(5, 20);
+            float colorScale = MathUtils.random(0.2f, 1f);
+            float velocityScale = MathUtils.random(-1f, 1f);
+
+            testBlock = new Box(this, x, y, w, h);
+            testBlock.setTexture(Assets.boundary);
+            testBlock.setColor(c.cpy().mul(colorScale, colorScale, colorScale, 1f));
+            if (random.nextBoolean()) {
+                testBlock.setVelocity(0f, velocityScale);
+            } else {
+                testBlock.setVelocity(velocityScale, 0f);
+            }
+            backgroundBlocks.add(testBlock);
+        }
+    }
+
     void update (float dt) {
-        player.updateState(dt);
+        player.calculateForces(dt);
         checkPlayerCollisions(); // TODO: Do not check all objects every frame
+
+        for (Box block : obstacleBlocks) {
+            block.updateState(dt);
+        }
+        for (Box block : backgroundBlocks) {
+            block.updateState(dt);
+        }
     }
 
     private void checkPlayerCollisions() {
@@ -74,7 +115,7 @@ class World {
 
         BoxIntersector intersector = new BoxIntersector(this, player);
 
-        for (Box block : blocks) {
+        for (Box block : obstacleBlocks) {
             intersector.setObstacle(block);
             if (intersector.intersecting()) {
                 penetrationVector = intersector.penetrationVector;
@@ -95,7 +136,7 @@ class World {
     }
 
     public void dispose() {
-        for (Box block : blocks) {
+        for (Box block : obstacleBlocks) {
             block.dispose();
         }
         player.dispose();

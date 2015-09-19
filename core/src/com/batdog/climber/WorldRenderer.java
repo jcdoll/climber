@@ -14,18 +14,20 @@ import java.util.List;
 
 class WorldRenderer {
     float cameraViewHeightMin = 20f;
-    float cameraViewHeightMax = 60f;
+    float cameraViewHeightMax = 30f;
     float cameraViewGain = 1f;
     float cameraViewHeight = cameraViewHeightMin;
     float cameraViewAspectRatio = 16/9f;
-    float cameraViewHeightGainP = 2e-3f;
-    float cameraViewHeightGainI = 1e-5f;
+
+    float cameraViewHeightGainP = 5e-3f;
+    float cameraViewHeightGainI = 1e-8f;
     float cameraViewHeightErrorIntegral = 0f;
 
     float cameraPositionGainP = 8e-2f;
     float cameraPositionGainI = 1e-4f;
     Vector3 cameraPositionError = new Vector3();
     Vector3 cameraPositionErrorIntegral = new Vector3();
+    float cameraTargetVelocityGain = 1e-2f; // seconds
 
     Climber game;
     World world;
@@ -52,9 +54,11 @@ class WorldRenderer {
         font.setColor(Color.WHITE);
         glyphLayout = new GlyphLayout();
 
-        plots.add(new Plotter("fps", 50f, 50f,  200f, 100f, 240, new float[]{30, 70}, () -> (float) Gdx.graphics.getFramesPerSecond()));
-        plots.add(new Plotter("v",   50f, 200f, 200f, 100f, 240, new float[]{0, 1000}, () -> world.player.velocity.len2()));
-        plots.add(new Plotter("h",   50f, 350f, 200f, 100f, 240, new float[]{0, 10}, () -> world.player.getTop()));
+        if (game.debugMode) {
+            plots.add(new Plotter("fps", 50f, 50f, 200f, 100f, 240, new float[]{30, 70}, () -> (float) Gdx.graphics.getFramesPerSecond()));
+            plots.add(new Plotter("v", 50f, 200f, 200f, 100f, 240, new float[]{0, 1000}, () -> world.player.velocity.len2()));
+            plots.add(new Plotter("h", 50f, 350f, 200f, 100f, 240, new float[]{0, 10}, () -> world.player.getTop()));
+        }
     }
 
     // Sprite batch is disposed of in the main game class
@@ -72,7 +76,7 @@ class WorldRenderer {
                             + cameraViewHeightErrorIntegral * cameraViewHeightGainI;
         cam.viewportWidth = cam.viewportHeight * cameraViewAspectRatio;
 
-        Vector2 targetPosition = world.player.position.cpy(); // TODO: Include player orientation and velocity
+        Vector2 targetPosition = world.player.position.cpy().add(world.player.velocity.cpy().scl(cameraTargetVelocityGain));
         cameraPositionError = new Vector3(targetPosition, 0).sub(cam.position);
         cameraPositionErrorIntegral.add(cameraPositionError);
         Vector3 positionFeedback = cameraPositionError.cpy().scl(cameraPositionGainP)
@@ -83,10 +87,13 @@ class WorldRenderer {
         // Draw world components
         batch.setProjectionMatrix(cam.combined);
         batch.begin();
-        world.player.render(batch);
-        for (Box block : world.blocks) {
+        for (Box block : world.backgroundBlocks) {
             block.render(batch);
         }
+        for (Box block : world.obstacleBlocks) {
+            block.render(batch);
+        }
+        world.player.render(batch);
         batch.end();
 
         // Draw HUD

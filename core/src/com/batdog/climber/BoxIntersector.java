@@ -35,7 +35,7 @@ public class BoxIntersector {
         float y = obstacleBox.getBottom() - mainBox.getBottom() - mainBox.getHeight();
         float w = mainBox.getWidth() + obstacleBox.getWidth();
         float h = mainBox.getHeight() + obstacleBox.getHeight();
-        md = new Box(x, y, w, h);
+        md = new Box(world, x, y, w, h);
     }
 
     // Vectors are outward normals of otherBox
