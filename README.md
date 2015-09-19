@@ -1,8 +1,8 @@
 ## Overview
 
-Climber is an experiment in libgdx development. The focus is on a controller-based desktop game with procedural platforming.
+Climber is an experiment in libgdx development. The focus is on a simple controller-based desktop game with procedural platforming.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7HAQl34IODU" frameborder="0" allowfullscreen></iframe>
+[![Video](http://img.youtube.com/vi/b8bzys1QbOM/0.jpg)](https://www.youtube.com/watch?v=b8bzys1QbOM)
 
 ## Setup and running
 * [Setup your development environment](https://github.com/libgdx/libgdx/wiki/Gradle-and-Intellij-IDEA)
