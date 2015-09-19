@@ -11,7 +11,6 @@ import java.util.Random;
 class World {
     Player player;
     public final List<Box> obstacleBlocks = new ArrayList<>();
-    public final List<Box> backgroundBlocks = new ArrayList<>();
     Random random = new Random();
     float worldDifficulty = 0f;
 
@@ -42,7 +41,6 @@ class World {
 
         // Generate other obstacleBlocks
         generateObstacles(new Color(1f, 1f, 1f, 1f));
-        generateBackground(new Color(11/255f, 132/255f, 199/255f, 1f));
     }
 
     private void generateObstacles(Color c) {
@@ -66,39 +64,10 @@ class World {
         }
     }
 
-    private void generateBackground(Color c) {
-        float minHeight = obstacleBlocks.get(0).getBottom();
-        float maxHeight = obstacleBlocks.get(obstacleBlocks.size() - 1).getTop();
-
-        Box testBlock;
-        for (int i = 0; i < 1000; i++) {
-            float x = MathUtils.random(-50, 50);
-            float y = MathUtils.random(minHeight, maxHeight);
-            float w = MathUtils.random(5, 20);
-            float h = MathUtils.random(5, 20);
-            float colorScale = MathUtils.random(0.2f, 1f);
-            float velocityScale = MathUtils.random(-1f, 1f);
-
-            testBlock = new Box(this, x, y, w, h);
-            testBlock.setTexture(Assets.boundary);
-            testBlock.setColor(c.cpy().mul(colorScale, colorScale, colorScale, 1f));
-            if (random.nextBoolean()) {
-                testBlock.setVelocity(0f, velocityScale);
-            } else {
-                testBlock.setVelocity(velocityScale, 0f);
-            }
-            backgroundBlocks.add(testBlock);
-        }
-    }
-
     void update (float dt) {
         player.calculateForces(dt);
         checkPlayerCollisions(); // TODO: Do not check all objects every frame
-
         for (Box block : obstacleBlocks) {
-            block.updateState(dt);
-        }
-        for (Box block : backgroundBlocks) {
             block.updateState(dt);
         }
     }

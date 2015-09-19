@@ -1,7 +1,6 @@
 package com.batdog.climber;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -39,9 +38,6 @@ class WorldRenderer {
 
     ShapeRenderer shapeRenderer = new ShapeRenderer();
 
-    BitmapFont font;
-    GlyphLayout glyphLayout;
-
     public WorldRenderer(Climber game, World world) {
         this.game = game;
         this.world = world;
@@ -49,10 +45,6 @@ class WorldRenderer {
         this.cam.position.set(world.player.position.x, world.player.position.y, 0);
         this.hudCam = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         this.batch = game.batch;
-
-        font = new BitmapFont();
-        font.setColor(Color.WHITE);
-        glyphLayout = new GlyphLayout();
 
         if (game.debugMode) {
             plots.add(new Plotter("fps", 50f, 50f, 200f, 100f, 240, new float[]{30, 70}, () -> (float) Gdx.graphics.getFramesPerSecond()));
@@ -87,9 +79,6 @@ class WorldRenderer {
         // Draw world components
         batch.setProjectionMatrix(cam.combined);
         batch.begin();
-        for (Box block : world.backgroundBlocks) {
-            block.render(batch);
-        }
         for (Box block : world.obstacleBlocks) {
             block.render(batch);
         }

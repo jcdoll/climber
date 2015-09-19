@@ -3,12 +3,9 @@ package com.batdog.climber;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.controllers.Controller;
-import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.controllers.PovDirection;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 
 public class GameScreen extends ScreenAdapter {
     final float VIEW_WIDTH = 150f;
@@ -17,12 +14,7 @@ public class GameScreen extends ScreenAdapter {
     Climber game;
     World world;
     WorldRenderer renderer;
-    Controller controller;
     OrthographicCamera guiCam;
-    boolean hasControllers = false;
-
-    final float MIN_DT = 1/30f;
-    GlyphLayout glyphLayout = new GlyphLayout();
 
     public GameScreen (Climber game) {
         this.game = game;
@@ -31,23 +23,14 @@ public class GameScreen extends ScreenAdapter {
         guiCam.position.set(VIEW_WIDTH / 2, VIEW_HEIGHT / 2, 0);
         world = new World();
         renderer = new WorldRenderer(game, world);
-
-        // Setup controllers
-        if (Controllers.getControllers().size > 0) {
-            hasControllers = true;
-            controller = Controllers.getControllers().first();
-        }
-
-        // Start playing music
-        Assets.startMusic(Assets.backgroundMusic);
     }
 
     public void update (float dt) {
         // Handle user input
         // TODO: Refactor to cleanup and eliminate potential double updates per frame
-        if (hasControllers) {
-            PovDirection pov = controller.getPov(XBox360Pad.POV);
-            if (controller.getButton(XBox360Pad.BUTTON_X) || controller.getButton(XBox360Pad.BUTTON_RB))
+        if (game.hasControllers) {
+            PovDirection pov = game.controller.getPov(XBox360Pad.POV);
+            if (game.controller.getButton(XBox360Pad.BUTTON_X) || game.controller.getButton(XBox360Pad.BUTTON_RB))
                 world.player.run();
             if (pov == XBox360Pad.BUTTON_DPAD_LEFT || pov == XBox360Pad.BUTTON_DPAD_UP_LEFT || pov == XBox360Pad.BUTTON_DPAD_DOWN_LEFT)
                 world.player.moveLeft();
@@ -56,12 +39,16 @@ public class GameScreen extends ScreenAdapter {
 
             // Apply jumpSound and update player jumpHold state
             // TODO: Eliminate jumpHold
-            if (controller.getButton(XBox360Pad.BUTTON_A)) {
+            if (game.controller.getButton(XBox360Pad.BUTTON_A)) {
                 world.player.jump();
                 world.player.jumpHold = true;
             } else {
                 world.player.jumpHold = false;
             }
+
+            // TODO: Transition to pause screen rather than main menu
+            if (game.controller.getButton(XBox360Pad.BUTTON_START))
+                game.setScreen(game.menuScreen);
         } else {
             if (Gdx.input.isKeyPressed(Input.Keys.CONTROL_LEFT))
                 world.player.run();
@@ -75,6 +62,8 @@ public class GameScreen extends ScreenAdapter {
             } else {
                 world.player.jumpHold = false;
             }
+            if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE))
+                game.setScreen(game.menuScreen);
         }
         world.update(dt);
     }
